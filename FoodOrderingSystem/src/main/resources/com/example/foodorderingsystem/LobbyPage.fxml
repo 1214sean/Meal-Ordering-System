@@ -21,15 +21,22 @@
     <children>
         <MenuBar layoutX="155.0" layoutY="-1.0" prefHeight="48.0" prefWidth="446.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
             <menus>
-                <Menu mnemonicParsing="false" text="Sign Out" />
-                <Menu mnemonicParsing="false" text="Reservation History" />
-                <Menu mnemonicParsing="false" text="Account">
+                <Menu fx:id="signout" mnemonicParsing="false" onAction="#SignOut" text="Sign Out">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Personal Info" />
-                        <MenuItem mnemonicParsing="false" text="Wallet" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Reserve Meal " />
+                        <MenuItem fx:id="ok1" mnemonicParsing="false" onAction="#Ok1" text="ok" />
+                    </items></Menu>
+                <Menu fx:id="reservehis" mnemonicParsing="false" onAction="#ReserveHis" text="Reservation History">
+                    <items>
+                        <MenuItem fx:id="ok2" mnemonicParsing="false" onAction="#Ok2" text="ok" />
+                    </items></Menu>
+                <Menu fx:id="pinfo" mnemonicParsing="false" onAction="#Pinfo" text="Personal Info">
+                    <items>
+                        <MenuItem fx:id="ok3" mnemonicParsing="false" onAction="#Ok3" text="ok" />
+                    </items></Menu>
+                <Menu fx:id="resmeal" mnemonicParsing="false" onAction="#ResMeal" text="Reserve Meal ">
+                    <items>
+                        <MenuItem fx:id="ok4" mnemonicParsing="false" onAction="#Ok4" text="ok" />
+                    </items></Menu>
             </menus>
         </MenuBar>
         <SplitPane dividerPositions="0.27675585284280935" layoutX="-5.0" layoutY="46.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
@@ -73,20 +80,19 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="502.0">
                     <children>
                         <ScrollBar layoutX="415.0" orientation="VERTICAL" prefHeight="353.0" prefWidth="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="415.0" AnchorPane.topAnchor="0.0" />
-                        <DatePicker layoutX="103.0" layoutY="29.0" prefHeight="26.0" prefWidth="183.0" promptText="Select Date" />
+                        <DatePicker fx:id="dpicker" layoutX="103.0" layoutY="29.0" onAction="#Dpicker" prefHeight="26.0" prefWidth="183.0" promptText="Select Date" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" layoutY="-1.0" prefHeight="30.0" prefWidth="200.0" text="Reserve Your Meal ">
                             <font>
                                 <Font size="20.0" />
                             </font></Label>
-                        <MenuButton layoutX="103.0" layoutY="55.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="183.0" text="Select Time">
+                        <MenuButton fx:id="seltime" layoutX="103.0" layoutY="55.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="183.0" text="Select Time">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="12:10-12:20" />
-                                <MenuItem mnemonicParsing="false" text="12:20-12:25" />
-                                <MenuItem mnemonicParsing="false" text="12:25:12:30" />
-                                <MenuItem mnemonicParsing="false" text="Other" />
+                                <MenuItem fx:id="seltime1" mnemonicParsing="false" onAction="#SelTime1" text="12:10-12:20" />
+                                <MenuItem fx:id="seltime2" mnemonicParsing="false" onAction="#SelTime2" text="12:20-12:25" />
+                                <MenuItem fx:id="seltime3" mnemonicParsing="false" onAction="#SelTime3" text="12:25-12:30" />
                             </items>
                         </MenuButton>
-                        <Label layoutX="14.0" layoutY="119.0" prefHeight="17.0" prefWidth="78.0" text="Trufle Rice" />
+                        <Label layoutX="14.0" layoutY="119.0" prefHeight="17.0" prefWidth="78.0" text="Truffle Rice" />
                         <Label layoutX="205.0" layoutY="119.0" prefHeight="17.0" prefWidth="105.0" text="Meat Spaghetti" />
                         <Label layoutX="14.0" layoutY="234.0" prefHeight="17.0" prefWidth="59.0" text="Rice Bolls" />
                         <Label layoutX="224.0" layoutY="234.0" prefHeight="17.0" prefWidth="68.0" text="Hot Dog " />
@@ -114,12 +120,11 @@
                         <TextArea layoutX="293.0" layoutY="121.0" prefHeight="67.0" prefWidth="105.0" text="Food Description" />
                         <TextArea layoutX="73.0" layoutY="234.0" prefHeight="67.0" prefWidth="105.0" text="Food Description" />
                         <TextArea layoutX="293.0" layoutY="234.0" prefHeight="67.0" prefWidth="105.0" text="Food Description" />
-                        <CheckBox layoutX="73.0" layoutY="190.0" mnemonicParsing="false" text="Select" />
-                        <CheckBox layoutX="293.0" layoutY="190.0" mnemonicParsing="false" text="Select" />
-                        <CheckBox layoutX="293.0" layoutY="303.0" mnemonicParsing="false" text="Select" />
-                        <CheckBox layoutX="73.0" layoutY="303.0" mnemonicParsing="false" text="Select" />
-                        <Button layoutX="117.0" layoutY="321.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="155.0" text="Submit Order" />
-                        <MenuButton layoutX="103.0" layoutY="81.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="183.0" text="Food Type">
+                        <CheckBox fx:id="sel1" layoutX="73.0" layoutY="190.0" mnemonicParsing="false" onAction="#SelCheck" text="Select" />
+                        <CheckBox fx:id="sel2" layoutX="293.0" layoutY="190.0" mnemonicParsing="false" onAction="#SelCheck" text="Select" />
+                        <CheckBox fx:id="sel4" layoutX="293.0" layoutY="303.0" mnemonicParsing="false" onAction="#SelCheck" text="Select" />
+                        <CheckBox fx:id="sel3" layoutX="73.0" layoutY="303.0" mnemonicParsing="false" onAction="#SelCheck" text="Select" />
+                        <MenuButton fx:id="foodtyp" layoutX="103.0" layoutY="81.0" mnemonicParsing="false" onAction="#FoodTyp" prefHeight="26.0" prefWidth="183.0" text="Food Type">
                             <items>
                                 <MenuItem mnemonicParsing="false" text="All" />
                                 <MenuItem mnemonicParsing="false" text="7-11" />
@@ -127,6 +132,8 @@
                                 <MenuItem mnemonicParsing="false" text="Court 2" />
                             </items>
                         </MenuButton>
+                        <Button fx:id="canorder" layoutX="238.0" layoutY="326.0" mnemonicParsing="false" onAction="#CanOrder" prefHeight="26.0" prefWidth="96.0" text="Cancel" />
+                        <Button fx:id="suborder" layoutX="102.0" layoutY="326.0" mnemonicParsing="false" onAction="#SubOrder" prefHeight="26.0" prefWidth="96.0" text="Submit Order" />
                     </children>
                 </AnchorPane>
             </items>
