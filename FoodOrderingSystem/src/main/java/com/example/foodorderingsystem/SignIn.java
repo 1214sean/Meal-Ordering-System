@@ -1,15 +1,13 @@
 package com.example.foodorderingsystem;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
@@ -21,6 +19,9 @@ public class SignIn {
     private PasswordField account;
 
     @FXML
+    private CheckBox adminb;
+
+    @FXML
     private Button login;
 
     @FXML
@@ -30,9 +31,21 @@ public class SignIn {
     private Button resetpass;
 
     @FXML
-    void enterlobby(ActionEvent event)  throws IOException{
+    private CheckBox userb;
 
-            {
+    @FXML
+    void ResetPass(ActionEvent event) {
+        account.setText("");
+        pass.setText("");
+        adminb.setSelected(false);
+        userb.setSelected(false);
+
+    }
+
+    @FXML
+    void enterlobby(ActionEvent event) throws IOException {
+        {
+            if(userb.isSelected()==true) {
                 Parent blah = FXMLLoader.load(getClass().getResource("LobbyPage.fxml"));
                 Scene scene = new Scene(blah);
 
@@ -40,8 +53,18 @@ public class SignIn {
                 appStage.setScene(scene);
                 appStage.show();
             }
+            else{
+                Parent blah = FXMLLoader.load(getClass().getResource("AdminEdit.fxml"));
+                Scene scene = new Scene(blah);
 
+                Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                appStage.setScene(scene);
+                appStage.show();
+
+            }
+        }
 
     }
 
 }
+

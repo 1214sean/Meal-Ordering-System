@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.foodorderingsystem.Adminfutureo">
+    <children>
+        <MenuBar layoutX="155.0" layoutY="-1.0" prefHeight="48.0" prefWidth="446.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Sign Out">
+                    <items>
+                        <MenuItem fx:id="ok1" mnemonicParsing="false" onAction="#Ok1" text="ok" />
+                    </items></Menu>
+                <Menu mnemonicParsing="false" text="Future Reservation ">
+                    <items>
+                        <MenuItem fx:id="ok2" mnemonicParsing="false" onAction="#Ok2" text="ok" />
+                    </items></Menu>
+                <Menu mnemonicParsing="false" text="Edit Meal ">
+                    <items>
+                        <MenuItem fx:id="ok3" mnemonicParsing="false" onAction="#Ok3" text="ok" />
+                    </items></Menu>
+                <Menu mnemonicParsing="false" text="Past Order">
+                    <items>
+                        <MenuItem fx:id="ok4" mnemonicParsing="false" onAction="#Ok4" text="ok" />
+                    </items></Menu>
+            </menus>
+        </MenuBar>
+        <SplitPane dividerPositions="0.27675585284280935" layoutX="-5.0" layoutY="46.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="353.0" prefWidth="224.0">
+                    <children>
+                        <ImageView fitHeight="60.0" fitWidth="80.0" layoutX="10.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="39.0">
+                            <image>
+                                <Image url="@istockphoto-1191487541-170667a.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="11.0" layoutY="14.0" prefHeight="17.0" prefWidth="78.0" text="Personl Info" />
+                        <Label layoutX="93.0" layoutY="36.0" prefHeight="18.0" prefWidth="59.0" text="Student ID" />
+                        <Label layoutX="93.0" layoutY="57.0" prefHeight="18.0" prefWidth="59.0" text="81xw31" />
+                        <Label layoutX="93.0" layoutY="75.0" prefHeight="18.0" prefWidth="59.0" text="Name" />
+                        <Label layoutX="93.0" layoutY="94.0" prefHeight="18.0" prefWidth="59.0" text="Sean" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="502.0">
+                    <children>
+                        <ScrollBar layoutX="415.0" orientation="VERTICAL" prefHeight="353.0" prefWidth="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="415.0" AnchorPane.topAnchor="0.0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" prefHeight="30.0" prefWidth="200.0" text="Future Reservation ">
+                            <font>
+                                <Font size="20.0" />
+                            </font></Label>
+                        <Label layoutX="10.0" layoutY="29.0" text="Future Orders" />
+                        <ListView fx:id="lsview" layoutX="10.0" layoutY="46.0" prefHeight="301.0" prefWidth="368.0">
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Check Order" />
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </ListView>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+        <ImageView fitHeight="50.0" fitWidth="155.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@截圖%202021-12-03%20上午11.41.34.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

@@ -72,6 +72,20 @@ public class LobbyPage {
     private MenuItem seltime3;
 
     @FXML
+    private MenuItem food1;
+
+    @FXML
+    private MenuItem food2;
+
+    @FXML
+    private MenuItem food3;
+
+    @FXML
+    private MenuItem food4;
+
+
+
+    @FXML
     private Menu signout;
 
     @FXML
@@ -79,6 +93,10 @@ public class LobbyPage {
 
     @FXML
     void CanOrder(ActionEvent event) {
+        sel1.setSelected(false);
+        sel2.setSelected(false);
+        sel3.setSelected(false);
+        sel4.setSelected(false);
 
     }
 
@@ -107,17 +125,46 @@ public class LobbyPage {
     }
 
     @FXML
-    void Ok2(ActionEvent event) {
+    void Ok2(ActionEvent event) throws IOException {
+
+        {
+            System.out.println("HI");
+            Parent blah = FXMLLoader.load(getClass().getResource("ReserveHis.fxml"));
+            Scene scene = new Scene(blah);
+
+            Stage appStage = (Stage) seltime.getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }
 
     }
 
     @FXML
-    void Ok3(ActionEvent event) {
+    void Ok3(ActionEvent event) throws IOException{
+
+        {
+            System.out.println("HI");
+            Parent blah = FXMLLoader.load(getClass().getResource("PersonInfo.fxml"));
+            Scene scene = new Scene(blah);
+
+            Stage appStage = (Stage) seltime.getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }
 
     }
 
     @FXML
-    void Ok4(ActionEvent event) {
+    void Ok4(ActionEvent event) throws IOException {
+        {
+            System.out.println("HI");
+            Parent blah = FXMLLoader.load(getClass().getResource("LobbyPage.fxml"));
+            Scene scene = new Scene(blah);
+
+            Stage appStage = (Stage) seltime.getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }
 
     }
 
@@ -138,6 +185,7 @@ public class LobbyPage {
 
     @FXML
     void SelCheck(ActionEvent event) {
+
 
     }
 
@@ -160,6 +208,33 @@ public class LobbyPage {
     }
 
     @FXML
+    void SelFood1(ActionEvent event) {
+        foodtyp.setText(food1.getText());
+
+    }
+
+    @FXML
+    void SelFood2(ActionEvent event) {
+        foodtyp.setText(food2.getText());
+
+    }
+
+    @FXML
+    void SelFood3(ActionEvent event) {
+        foodtyp.setText(food3.getText());
+
+    }
+
+    @FXML
+    void SelFood4(ActionEvent event) {
+        foodtyp.setText(food4.getText());
+
+    }
+
+
+
+
+    @FXML
     void SignOut(ActionEvent event) {
 
     }
@@ -167,6 +242,15 @@ public class LobbyPage {
     @FXML
     void SubOrder(ActionEvent event) {
 
+        if(sel1.isSelected()||sel2.isSelected()|| sel3.isSelected()||sel4.isSelected()==true) {
+            suborder.setText("Submitted!!");
+        }
+        else {
+            suborder.setText("Select Again");
+        }
+
     }
 
 }
+
+

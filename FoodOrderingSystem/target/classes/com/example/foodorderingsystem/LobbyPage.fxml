@@ -126,10 +126,10 @@
                         <CheckBox fx:id="sel3" layoutX="73.0" layoutY="303.0" mnemonicParsing="false" onAction="#SelCheck" text="Select" />
                         <MenuButton fx:id="foodtyp" layoutX="103.0" layoutY="81.0" mnemonicParsing="false" onAction="#FoodTyp" prefHeight="26.0" prefWidth="183.0" text="Food Type">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="All" />
-                                <MenuItem mnemonicParsing="false" text="7-11" />
-                                <MenuItem mnemonicParsing="false" text="Court 1" />
-                                <MenuItem mnemonicParsing="false" text="Court 2" />
+                                <MenuItem fx:id="food1" mnemonicParsing="false" onAction="#SelFood1" text="All" />
+                                <MenuItem fx:id="food2" mnemonicParsing="false" onAction="#SelFood2" text="7-11" />
+                                <MenuItem fx:id="food3" mnemonicParsing="false" onAction="#SelFood3" text="Court 1" />
+                                <MenuItem fx:id="food4" mnemonicParsing="false" onAction="#SelFood4" text="Court 2" />
                             </items>
                         </MenuButton>
                         <Button fx:id="canorder" layoutX="238.0" layoutY="326.0" mnemonicParsing="false" onAction="#CanOrder" prefHeight="26.0" prefWidth="96.0" text="Cancel" />
