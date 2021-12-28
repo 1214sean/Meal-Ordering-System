@@ -13,7 +13,11 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class LobbyPage {
 
@@ -91,6 +95,8 @@ public class LobbyPage {
     @FXML
     private Button suborder;
 
+
+
     @FXML
     void CanOrder(ActionEvent event) {
         sel1.setSelected(false);
@@ -127,6 +133,8 @@ public class LobbyPage {
     @FXML
     void Ok2(ActionEvent event) throws IOException {
 
+        List<List<String>> a;
+
         {
             System.out.println("HI");
             Parent blah = FXMLLoader.load(getClass().getResource("ReserveHis.fxml"));
@@ -135,7 +143,12 @@ public class LobbyPage {
             Stage appStage = (Stage) seltime.getScene().getWindow();
             appStage.setScene(scene);
             appStage.show();
+
+
+
+
         }
+
 
     }
 
@@ -250,6 +263,14 @@ public class LobbyPage {
         }
 
     }
+
+
+
+
+
+
+
+
 
 }
 

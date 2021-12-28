@@ -6,12 +6,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ReserveHis {
+
+    private static final String COMMA_DELIMITER = ",";
 
     @FXML
     private Button futureok;
@@ -29,12 +36,41 @@ public class ReserveHis {
     private MenuItem ok4;
 
     @FXML
-    void FutureOk(ActionEvent event) {
+    private MenuButton viewfuture;
+
+    @FXML
+    private MenuItem viewfuture1;
+
+    @FXML
+    private MenuItem viewfuture2;
+
+    @FXML
+    private MenuButton viewpast;
+
+    @FXML
+    private MenuItem viewpast1;
+
+    @FXML
+    private MenuItem viewpast2;
+
+
+
+    @FXML
+    protected void initialize() {
+        System.out.println("RESERVEHISSS!!!!");
+        read();
+        List<List<String>> a=read();
+        //write(a);
+        changeviewfuture1(a);
 
     }
 
     @FXML
-    void Ok1(ActionEvent event) throws IOException {
+    void FutureOk(ActionEvent event) {
+
+    }
+    @FXML
+    void Ok1(ActionEvent event) throws IOException
         {
             System.out.println("HI");
             Parent blah = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
@@ -45,25 +81,20 @@ public class ReserveHis {
             appStage.show();
         }
 
-    }
-
-
     @FXML
-    void Ok2(ActionEvent event) throws IOException{
+    void Ok2(ActionEvent event) throws IOException
         {
-        System.out.println("HI");
-        Parent blah = FXMLLoader.load(getClass().getResource("ReserveHis.fxml"));
-        Scene scene = new Scene(blah);
+            System.out.println("HI");
+            Parent blah = FXMLLoader.load(getClass().getResource("ReserveHis.fxml"));
+            Scene scene = new Scene(blah);
 
-        Stage appStage = (Stage) futureok.getScene().getWindow();
-        appStage.setScene(scene);
-        appStage.show();
-    }
-
-    }
+            Stage appStage = (Stage) futureok.getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }
 
     @FXML
-    void Ok3(ActionEvent event) throws IOException{
+    void Ok3(ActionEvent event) throws IOException
         {
             System.out.println("HI");
             Parent blah = FXMLLoader.load(getClass().getResource("PersonInfo.fxml"));
@@ -74,10 +105,8 @@ public class ReserveHis {
             appStage.show();
         }
 
-    }
-
     @FXML
-    void Ok4(ActionEvent event) throws IOException {
+    void Ok4(ActionEvent event) throws IOException
         {
             System.out.println("HI");
             Parent blah = FXMLLoader.load(getClass().getResource("LobbyPage.fxml"));
@@ -87,6 +116,96 @@ public class ReserveHis {
             appStage.setScene(scene);
             appStage.show();
         }
+
+    @FXML
+    void ViewFuture(ActionEvent event) {
+
+
+
+
+    }
+
+    @FXML
+    void ViewFuture1(ActionEvent event) {
+
+
+    }
+
+    @FXML
+    void ViewFuture2(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ViewPast(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ViewPast1(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ViewPast2(ActionEvent event) {
+
+    }
+
+    private static List<List<String>> read() {
+
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("/Users/sean/Documents/GitHub/Meal-Ordering-System/FoodOrderingSystem/src/main/java/com/example/foodorderingsystem/StudentOrder.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(records.toString());
+        return records;
+    }
+
+
+
+    /*private static void write(List<List<String>> data) {
+        String ans = "";
+        for(int i = 0; i < data.size(); i++) {
+            for(int j = 0; j < data.get(i).size(); j++) {
+                ans += String.valueOf(data.get(i).get(j));
+                if(j != data.get(i).size() - 1) ans += ",";
+            }
+            if(i != data.size() - 1) ans += "\n";
+        }
+        System.out.print(ans);
+
+        try {
+            FileWriter myWriter = new FileWriter("/Users/sean/Documents/GitHub/Meal-Ordering-System/FoodOrderingSystem/src/main/java/com/example/foodorderingsystem/writtest.csv");
+            myWriter.write(ans);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+
+    } */
+
+    private void changeviewfuture1(List<List<String>> data) {
+        String ans = "";
+        for(int i = 0; i < data.size(); i++) {
+            for(int j = 0; j < data.get(i).size(); j++) {
+                ans += String.valueOf(data.get(i).get(j));
+                if(j != data.get(i).size() - 1) ans += ",";
+            }
+            if(i != data.size() - 1) ans += "\n";
+        }
+        viewfuture1.setText(ans);
+
 
     }
 
