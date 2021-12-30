@@ -11,9 +11,15 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 public class SignIn {
+
+    private static final String COMMA_DELIMITER = ",";
 
     @FXML
     private PasswordField account;
@@ -44,8 +50,27 @@ public class SignIn {
 
     @FXML
     void enterlobby(ActionEvent event) throws IOException {
-        {
-            if(userb.isSelected()==true) {
+
+
+        List<List<String>> a=read();
+        String AuthenAccount=account.getText();
+        String Authenpassword=pass.getText();
+        boolean allowlogin=false;
+
+        System.out.println(a.get(0).get(0));
+        System.out.println(AuthenAccount );
+        System.out.println(a.get(0).get(1));
+        System.out.println(Authenpassword);
+
+        if (a.get(0).get(0).equals(AuthenAccount) && a.get(0).get(1).equals(Authenpassword)) {
+
+            allowlogin=true;
+
+        } else{}
+
+
+
+            if(userb.isSelected()==true && allowlogin==true ) {
                 Parent blah = FXMLLoader.load(getClass().getResource("LobbyPage.fxml"));
                 Scene scene = new Scene(blah);
 
@@ -53,7 +78,7 @@ public class SignIn {
                 appStage.setScene(scene);
                 appStage.show();
             }
-            else{
+            else if (allowlogin==true){
                 Parent blah = FXMLLoader.load(getClass().getResource("AdminEdit.fxml"));
                 Scene scene = new Scene(blah);
 
@@ -61,10 +86,32 @@ public class SignIn {
                 appStage.setScene(scene);
                 appStage.show();
 
-            }
-        }
+            }else{}
+
 
     }
+
+    private static List<List<String>> read() {
+
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("/Users/sean/Documents/GitHub/Meal-Ordering-System/FoodOrderingSystem/src/main/java/com/example/foodorderingsystem/AccountPass.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(records.toString());
+        return records;
+    }
+
+
+
+
 
 }
 

@@ -34,7 +34,6 @@ public class Adminfutureo {
         Stage appStage = (Stage) lsview.getScene().getWindow();
         appStage.setScene(scene);
         appStage.show();
-
     }
 
     @FXML

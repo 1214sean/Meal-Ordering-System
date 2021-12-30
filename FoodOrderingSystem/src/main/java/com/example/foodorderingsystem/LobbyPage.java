@@ -14,6 +14,7 @@ import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,11 +22,15 @@ import java.util.List;
 
 public class LobbyPage {
 
+    private static final String COMMA_DELIMITER = ",";
+
     @FXML
     private Button canorder;
 
     @FXML
     private DatePicker dpicker;
+
+
 
     @FXML
     private MenuButton foodtyp;
@@ -109,10 +114,14 @@ public class LobbyPage {
     @FXML
     void Dpicker(ActionEvent event) {
 
+
+
     }
 
     @FXML
     void FoodTyp(ActionEvent event) {
+
+
 
     }
 
@@ -203,14 +212,22 @@ public class LobbyPage {
     }
 
     @FXML
+    void SelTime(ActionEvent event) {
+
+
+    }
+
+    @FXML
     void SelTime1(ActionEvent event) {
         seltime.setText(seltime1.getText());
+
 
     }
 
     @FXML
     void SelTime2(ActionEvent event) {
         seltime.setText(seltime2.getText());
+
 
     }
 
@@ -223,6 +240,7 @@ public class LobbyPage {
     @FXML
     void SelFood1(ActionEvent event) {
         foodtyp.setText(food1.getText());
+
 
     }
 
@@ -254,15 +272,91 @@ public class LobbyPage {
 
     @FXML
     void SubOrder(ActionEvent event) {
+        LocalDate date = dpicker.getValue();
+        System.out.println(date);
+        String fti=seltime.getText();
+        System.out.println(fti);
+        String fty=foodtyp.getText();
+        System.out.println(fty);
+
+        List<List<String>> a=read();
+        List<String> x=new ArrayList<>();
+
+        x.add(date.toString());
+        x.add(fti);
+        x.add(fty);
+
+        a.add(x);
+        write(a);
+
+        // 到時候整個寫到 if else的 if 裏面
+
+
+
+
 
         if(sel1.isSelected()||sel2.isSelected()|| sel3.isSelected()||sel4.isSelected()==true) {
+
+
             suborder.setText("Submitted!!");
         }
         else {
             suborder.setText("Select Again");
         }
 
+
+
+
+
+
+
+
+
+
     }
+
+    private static List<List<String>> read() {
+
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("/Users/sean/Documents/GitHub/Meal-Ordering-System/FoodOrderingSystem/src/main/java/com/example/foodorderingsystem/StudentOrder.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(records.toString());
+        return records;
+    }
+
+    private static void write(List<List<String>> data) {
+        String ans = "";
+        for(int i = 0; i < data.size(); i++) {
+            for(int j = 0; j < data.get(i).size(); j++) {
+                ans += String.valueOf(data.get(i).get(j));
+                if(j != data.get(i).size() - 1) ans += ",";
+            }
+            if(i != data.size() - 1) ans += "\n";
+        }
+        System.out.print(ans);
+
+        try {
+            FileWriter myWriter = new FileWriter("/Users/sean/Documents/GitHub/Meal-Ordering-System/FoodOrderingSystem/src/main/java/com/example/foodorderingsystem/StudentOrder.csv");
+            myWriter.write(ans);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+
+    }
+
 
 
 

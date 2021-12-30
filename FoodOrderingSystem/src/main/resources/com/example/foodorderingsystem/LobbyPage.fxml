@@ -85,7 +85,7 @@
                             <font>
                                 <Font size="20.0" />
                             </font></Label>
-                        <MenuButton fx:id="seltime" layoutX="103.0" layoutY="55.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="183.0" text="Select Time">
+                        <MenuButton fx:id="seltime" layoutX="103.0" layoutY="55.0" mnemonicParsing="false" onAction="#SelTime" prefHeight="26.0" prefWidth="183.0" text="Select Time">
                             <items>
                                 <MenuItem fx:id="seltime1" mnemonicParsing="false" onAction="#SelTime1" text="12:10-12:20" />
                                 <MenuItem fx:id="seltime2" mnemonicParsing="false" onAction="#SelTime2" text="12:20-12:25" />
