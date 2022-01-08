@@ -81,7 +81,7 @@ public class AdminEdit {
 
         Stage appStage = (Stage) save.getScene().getWindow();
         appStage.setScene(scene);
-        appStage.show();
+        appStage.show(); //畫面轉跳
 
     }
 
