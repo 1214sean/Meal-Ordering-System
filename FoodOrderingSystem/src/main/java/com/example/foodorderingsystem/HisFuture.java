@@ -78,7 +78,7 @@ public class HisFuture {
     private static int readcommu_i() {
 
         String aggregated = "";
-        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "orderview_commun_i.csv.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "orderview_commun_i.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 aggregated += line;

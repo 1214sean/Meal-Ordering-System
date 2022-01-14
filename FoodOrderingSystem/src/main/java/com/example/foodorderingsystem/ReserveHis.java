@@ -243,7 +243,7 @@ public class ReserveHis {
         System.out.println(i);
 
         try {
-            FileWriter myWriter = new FileWriter(Configs.base + "orderview_commun_i.csv.csv"); //communicate between new developed menuitem and HisFuture.fxml
+            FileWriter myWriter = new FileWriter(Configs.base + "orderview_commun_i.csv"); //communicate between new developed menuitem and HisFuture.fxml
             myWriter.write(java.lang.String.valueOf(i));
             myWriter.flush();
             myWriter.close();

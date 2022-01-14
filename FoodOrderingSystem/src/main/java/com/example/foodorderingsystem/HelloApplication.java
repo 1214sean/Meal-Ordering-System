@@ -12,7 +12,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         String StudentO_relative_path = Configs.base + "StudentOrder.csv";
         String AccountPass_relative_path = Configs.base + "AccountPass.csv";
-        String Orderviewi_relative_path = Configs.base + "orderview_commun_i.csv.csv";
+        String Orderviewi_relative_path = Configs.base + "orderview_commun_i.csv";
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LobbyPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
