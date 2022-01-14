@@ -94,7 +94,7 @@ public class SignIn {
     private static List<List<String>> read() {
 
         List<List<String>> records = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("/Users/sean/Documents/GitHub/Meal-Ordering-System/FoodOrderingSystem/src/main/java/com/example/foodorderingsystem/AccountPass.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "AccountPass.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);

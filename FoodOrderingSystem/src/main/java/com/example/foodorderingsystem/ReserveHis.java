@@ -183,7 +183,7 @@ public class ReserveHis {
     private static List<List<String>> read() {
 
         List<List<String>> records = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("/Users/sean/Documents/GitHub/Meal-Ordering-System/FoodOrderingSystem/src/main/java/com/example/foodorderingsystem/StudentOrder.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrder.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
@@ -243,7 +243,7 @@ public class ReserveHis {
         System.out.println(i);
 
         try {
-            FileWriter myWriter = new FileWriter("/Users/sean/Documents/GitHub/Meal-Ordering-System/FoodOrderingSystem/src/main/java/com/example/foodorderingsystem/orderview_commun_i.csv"); //communicate between new developed menuitem and HisFuture.fxml
+            FileWriter myWriter = new FileWriter(Configs.base + "orderview_commun_i.csv.csv"); //communicate between new developed menuitem and HisFuture.fxml
             myWriter.write(java.lang.String.valueOf(i));
             myWriter.flush();
             myWriter.close();

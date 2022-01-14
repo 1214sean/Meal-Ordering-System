@@ -118,7 +118,7 @@
                                 </TitledPane>
                             </panes>
                         </Accordion>
-                        <Button layoutX="295.0" layoutY="306.0" mnemonicParsing="false" text="Delete Order" />
+                        <Button fx:id="delete_order" layoutX="295.0" layoutY="306.0" mnemonicParsing="false" onAction="#Delete_Order" text="Delete Order" />
                         <Button layoutX="388.0" layoutY="5.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="16.0" text="X">
                             <font>
                                 <Font size="10.0" />

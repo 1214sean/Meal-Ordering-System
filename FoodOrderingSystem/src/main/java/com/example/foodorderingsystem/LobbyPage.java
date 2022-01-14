@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -278,6 +279,8 @@ public class LobbyPage {
         System.out.println(fti);
         String fty=foodtyp.getText();
         System.out.println(fty);
+        String Local_T=LocalTime.now().toString();
+        System.out.println(Local_T);
 
         List<List<String>> a=read();
         List<String> x=new ArrayList<>();
@@ -318,7 +321,7 @@ public class LobbyPage {
     private static List<List<String>> read() {
 
         List<List<String>> records = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("/Users/sean/Documents/GitHub/Meal-Ordering-System/FoodOrderingSystem/src/main/java/com/example/foodorderingsystem/StudentOrder.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrder.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
@@ -345,7 +348,7 @@ public class LobbyPage {
         System.out.print(ans);
 
         try {
-            FileWriter myWriter = new FileWriter("/Users/sean/Documents/GitHub/Meal-Ordering-System/FoodOrderingSystem/src/main/java/com/example/foodorderingsystem/StudentOrder.csv");
+            FileWriter myWriter = new FileWriter(Configs.base + "StudentOrder.csv");
             myWriter.write(ans);
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
