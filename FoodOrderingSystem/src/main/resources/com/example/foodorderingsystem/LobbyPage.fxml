@@ -45,7 +45,7 @@
                     <children>
                         <ImageView fitHeight="60.0" fitWidth="80.0" layoutX="10.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="39.0">
                             <image>
-                                <Image url="https://i1.sndcdn.com/artworks-EqSYf1kthSowf85N-7zyMNw-t500x500.jpg" />
+                                <Image url="https://memeprod.ap-south-1.linodeobjects.com/user-template/9b7f96b52cdcd0eeae6f702d46087060.png" />
                             </image>
                         </ImageView>
                         <Label layoutX="11.0" layoutY="14.0" prefHeight="17.0" prefWidth="78.0" text="Personl Info" />
@@ -108,7 +108,7 @@
                         </ImageView>
                         <ImageView fitHeight="48.0" fitWidth="59.0" layoutX="14.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/%E9%A6%99%E8%85%B8%E9%A6%99%E8%BE%A3%E9%86%AC%E9%BB%83%E9%87%91%E8%9B%8B%E7%82%92%E9%A3%AF-1599537568.jpg?crop=1.00xw:0.915xh;0,0.0528xh&resize=768:*" />
+                                <Image url="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/%E9%A6%99%E8%85%B8%E9%A6%99%E8%BE%A3%E9%86%AC%E9%BB%83%E9%87%91%E8%9B%8B%E7%82%92%E9%A3%AF-1599537568.jpg?crop=1.00xw:0.915xh;0,0.0528xhresize=768:*" />
                             </image>
                         </ImageView>
                         <ImageView fitHeight="48.0" fitWidth="59.0" layoutX="228.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
