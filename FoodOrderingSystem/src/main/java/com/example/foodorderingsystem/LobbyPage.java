@@ -155,9 +155,7 @@ public class LobbyPage {
             appStage.show();
 
 
-
-
-        }
+        }System.out.println("helooloololololoolololoolo");
 
 
     }

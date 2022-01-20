@@ -12,9 +12,10 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class ReserveHis {
 
@@ -62,18 +63,62 @@ public class ReserveHis {
         //List<List<String>> a=read();
         //write(a);
         //changeviewfuture1(a);        //第一種改menuiten name 的方式
-
-
         List<List<String>> reserve=read();
-        for( int i=0; i<reserve.size();i++)
+        Collections.sort(reserve, new CustomComparator());
+
+        viewfuture.getItems().clear();
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter_date = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        System.out.println(date.format(formatter_date));
+        String comparedate= date.format(formatter_date);
+
+        LocalTime time = LocalTime.now();
+        DateTimeFormatter formatter_time = DateTimeFormatter.ofPattern("HH:mm:ss");
+        System.out.println(time.format(formatter_time));
+        String comparetime=time.format(formatter_time);
+
+        int i;
+
+        for( i=0; i<reserve.size();i++) {
+            if (
+                    (comparedate.compareTo(reserve.get(i).get(0)) < 0) ||
+                            (comparedate.compareTo(reserve.get(i).get(0)) == 0 && comparetime.compareTo("12:30:00") < 0)
+            ) {
+                break;
+            }
+
+        }
+
+
+
+
+        for( int j=0; j<i;j++)
         {
-            String c=reserve.get(i).get(0)+reserve.get(i).get(1)+reserve.get(i).get(2);
+            String c=reserve.get(j).get(0)+reserve.get(j).get(1)+reserve.get(j).get(2);
+            MenuItem item=new MenuItem(c);
+            viewpast.getItems().add(item);
+            final int j_final_past =j;
+            item.setOnAction(event -> orderClicked(event, j_final_past));
+
+
+        }
+        for( int j=i; j<reserve.size();j++)
+        {
+            String c=reserve.get(j).get(0)+reserve.get(j).get(1)+reserve.get(j).get(2);
             MenuItem item=new MenuItem(c);
             viewfuture.getItems().add(item);
-            final int i_final = i;
-            item.setOnAction(event -> orderClicked(event, i_final));
+            final int j_final_future =j;
+            item.setOnAction(event -> orderClicked(event, j_final_future));
 
-        } //自動生成menuitem + 更新menu item name
+        }
+
+
+
+
+
+        //自動生成menuitem + 更新menu item name
+
+
 
 
     }
@@ -255,8 +300,24 @@ public class ReserveHis {
 
 
     }
+}
 
 
+class CustomComparator implements Comparator<List<String>>
+{
+    @Override
+    public int compare(List<String> o1,
+                       List<String> o2) {
+        String firstString_o1 = o1.get(0);
+        String firstString_o2 = o2.get(0);
+        String firstString_o3 = o1.get(1);
+        String firstString_o4 = o2.get(1);
 
+        if (firstString_o1.compareTo(firstString_o2) < 0 ||
+                firstString_o1.compareTo(firstString_o2) == 0 && firstString_o3.compareTo(firstString_o4) < 0)
+            return -1;
+        else return 1;
+
+    }
 
 }
