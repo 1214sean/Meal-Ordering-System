@@ -5,12 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -24,6 +20,82 @@ import java.util.List;
 public class LobbyPage {
 
     private static final String COMMA_DELIMITER = ",";
+
+    @FXML
+    private Label Food_Item_01;
+
+    @FXML
+    private Label Food_Item_02;
+
+    @FXML
+    private Label Food_Item_03;
+
+    @FXML
+    private Label Food_Item_04;
+
+    @FXML
+    private TextArea ItemDiscript_01;
+
+    @FXML
+    private TextArea ItemDiscript_02;
+
+    @FXML
+    private TextArea ItemDiscript_03;
+
+    @FXML
+    private TextArea ItemDiscript_04;
+
+    @FXML
+    private ImageView ItemPic_01;
+
+    @FXML
+    private ImageView ItemPic_02;
+
+    @FXML
+    private ImageView ItemPic_03;
+
+    @FXML
+    private ImageView ItemPic_04;
+
+    @FXML
+    private Label Price_01;
+
+    @FXML
+    private Label Price_02;
+
+    @FXML
+    private Label Price_03;
+
+    @FXML
+    private Label Price_04;
+
+    @FXML
+    private Label RO_Date01;
+
+    @FXML
+    private Label RO_Date02;
+
+    @FXML
+    private Label RO_Date03;
+
+    @FXML
+    private ImageView RO_Image01;
+
+    @FXML
+    private ImageView RO_Image02;
+
+    @FXML
+    private ImageView RO_Image03;
+
+    @FXML
+    private Label RO_Item01;
+
+    @FXML
+    private Label RO_Item02;
+
+    @FXML
+    private Label RO_Item03;
+
 
     @FXML
     private Button canorder;
@@ -81,8 +153,6 @@ public class LobbyPage {
     @FXML
     private MenuItem seltime3;
 
-    @FXML
-    private MenuItem food1;
 
     @FXML
     private MenuItem food2;
@@ -100,6 +170,34 @@ public class LobbyPage {
 
     @FXML
     private Button suborder;
+
+
+    @FXML
+    protected void initialize() {
+        List<List<String>> a=read_three();
+        if (a.size()==1){
+            RO_Item01.setText(String.valueOf(a.get(0).get(2)));
+            RO_Date01.setText(String.valueOf(a.get(0).get(0)));
+
+        }else if (a.size()==2){
+            RO_Item01.setText(String.valueOf(a.get(0).get(2)));
+            RO_Date01.setText(String.valueOf(a.get(0).get(0)));
+            RO_Item02.setText(String.valueOf(a.get(1).get(2)));
+            RO_Date02.setText(String.valueOf(a.get(1).get(0)));
+        }else{
+            RO_Item01.setText(String.valueOf(a.get(0).get(2)));
+            RO_Date01.setText(String.valueOf(a.get(0).get(0)));
+            RO_Item02.setText(String.valueOf(a.get(1).get(2)));
+            RO_Date02.setText(String.valueOf(a.get(1).get(0)));
+            RO_Item03.setText(String.valueOf(a.get(2).get(2)));
+            RO_Date03.setText(String.valueOf(a.get(2).get(0)));
+
+        }
+
+
+
+
+    }
 
 
 
@@ -204,11 +302,7 @@ public class LobbyPage {
 
     }
 
-    @FXML
-    void SelCheck(ActionEvent event) {
 
-
-    }
 
     @FXML
     void SelTime(ActionEvent event) {
@@ -236,16 +330,12 @@ public class LobbyPage {
 
     }
 
-    @FXML
-    void SelFood1(ActionEvent event) {
-        foodtyp.setText(food1.getText());
 
-
-    }
 
     @FXML
     void SelFood2(ActionEvent event) {
         foodtyp.setText(food2.getText());
+
 
     }
 
@@ -324,6 +414,28 @@ public class LobbyPage {
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
                 records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(records.toString());
+        return records;
+    }
+
+
+    private static List<List<String>> read_three() {
+
+        int x=0;
+
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrder.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null && x<3) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+                x++;
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

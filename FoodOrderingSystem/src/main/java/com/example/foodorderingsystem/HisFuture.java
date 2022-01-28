@@ -1,8 +1,12 @@
 package com.example.foodorderingsystem;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -41,11 +45,19 @@ public class HisFuture {
     }
 
     @FXML
-    protected void Delete_Order() {
+    protected void Delete_Order() throws IOException {
 
         List<List<String>> b = read(); //讀取原本資料
         List<List<String>> c = Deleting(b);
-        write(c); //replacing the original order with deleted order
+        write(c);
+        System.out.println("HI");
+        Parent blah = FXMLLoader.load(getClass().getResource("ReserveHis.fxml"));
+        Scene scene = new Scene(blah);
+
+        Stage appStage = (Stage) delete_order.getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
+        //replacing the original order with deleted order
 
         // NEED another line to go back to  the previous page
     }

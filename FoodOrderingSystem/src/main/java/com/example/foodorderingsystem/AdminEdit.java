@@ -2,24 +2,11 @@ package com.example.foodorderingsystem;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class AdminEdit {
-
-    @FXML
-    private DatePicker DateP;
-
-    @FXML
-    private MenuItem food1;
 
     @FXML
     private MenuItem food2;
@@ -49,11 +36,6 @@ public class AdminEdit {
     private Button save;
 
     @FXML
-    void Food1(ActionEvent event) {
-
-    }
-
-    @FXML
     void Food2(ActionEvent event) {
 
     }
@@ -74,50 +56,22 @@ public class AdminEdit {
     }
 
     @FXML
-    void Ok1(ActionEvent event) throws IOException {
-        System.out.println("HI");
-        Parent blah = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
-        Scene scene = new Scene(blah);
-
-        Stage appStage = (Stage) save.getScene().getWindow();
-        appStage.setScene(scene);
-        appStage.show(); //畫面轉跳
+    void Ok1(ActionEvent event) {
 
     }
 
     @FXML
-    void Ok2(ActionEvent event) throws IOException {
-        System.out.println("HI");
-        Parent blah = FXMLLoader.load(getClass().getResource("Adminfutureo.fxml"));
-        Scene scene = new Scene(blah);
-
-        Stage appStage = (Stage) save.getScene().getWindow();
-        appStage.setScene(scene);
-        appStage.show();
+    void Ok2(ActionEvent event) {
 
     }
 
     @FXML
-    void Ok3(ActionEvent event) throws IOException {
-        System.out.println("HI");
-        Parent blah = FXMLLoader.load(getClass().getResource("AdminEdit.fxml"));
-        Scene scene = new Scene(blah);
-
-        Stage appStage = (Stage) save.getScene().getWindow();
-        appStage.setScene(scene);
-        appStage.show();
+    void Ok3(ActionEvent event) {
 
     }
 
     @FXML
-    void Ok4(ActionEvent event) throws IOException {
-        System.out.println("HI");
-        Parent blah = FXMLLoader.load(getClass().getResource("Adminpasto.fxml"));
-        Scene scene = new Scene(blah);
-
-        Stage appStage = (Stage) save.getScene().getWindow();
-        appStage.setScene(scene);
-        appStage.show();
+    void Ok4(ActionEvent event) {
 
     }
 

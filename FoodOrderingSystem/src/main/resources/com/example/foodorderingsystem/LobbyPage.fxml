@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -17,23 +15,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.foodorderingsystem.LobbyPage">
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.foodorderingsystem.ReserveHis">
     <children>
         <MenuBar layoutX="155.0" layoutY="-1.0" prefHeight="48.0" prefWidth="446.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
             <menus>
-                <Menu fx:id="signout" mnemonicParsing="false" onAction="#SignOut" text="Sign Out">
+                <Menu mnemonicParsing="false" text="Sign Out">
                     <items>
                         <MenuItem fx:id="ok1" mnemonicParsing="false" onAction="#Ok1" text="ok" />
                     </items></Menu>
-                <Menu fx:id="reservehis" mnemonicParsing="false" onAction="#ReserveHis" text="Reservation History">
+                <Menu mnemonicParsing="false" text="Reservation History">
                     <items>
                         <MenuItem fx:id="ok2" mnemonicParsing="false" onAction="#Ok2" text="ok" />
                     </items></Menu>
-                <Menu fx:id="pinfo" mnemonicParsing="false" onAction="#Pinfo" text="Personal Info">
+                <Menu mnemonicParsing="false" text="Personal Info">
                     <items>
                         <MenuItem fx:id="ok3" mnemonicParsing="false" onAction="#Ok3" text="ok" />
-                    </items></Menu>
-                <Menu fx:id="resmeal" mnemonicParsing="false" onAction="#ResMeal" text="Reserve Meal ">
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Reserve Meal ">
                     <items>
                         <MenuItem fx:id="ok4" mnemonicParsing="false" onAction="#Ok4" text="ok" />
                     </items></Menu>
@@ -45,7 +44,7 @@
                     <children>
                         <ImageView fitHeight="60.0" fitWidth="80.0" layoutX="10.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="39.0">
                             <image>
-                                <Image url="https://memeprod.ap-south-1.linodeobjects.com/user-template/9b7f96b52cdcd0eeae6f702d46087060.png" />
+                                <Image url="@istockphoto-1191487541-170667a.jpg" />
                             </image>
                         </ImageView>
                         <Label layoutX="11.0" layoutY="14.0" prefHeight="17.0" prefWidth="78.0" text="Personl Info" />
@@ -57,17 +56,17 @@
                         <Label layoutX="11.0" layoutY="147.0" text="Recent Orders" />
                         <ImageView fitHeight="48.0" fitWidth="59.0" layoutX="10.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="https://imgur.dcard.tw/NKdTbrDh.jpg" />
+                                <Image url="@rsUQglw.png" />
                             </image>
                         </ImageView>
                         <ImageView fitHeight="48.0" fitWidth="59.0" layoutX="10.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="https://dorigoimage.files.wordpress.com/2019/06/wp-15602285249147702928475496967012.jpg" />
+                                <Image url="@cuisine_181.png" />
                             </image>
                         </ImageView>
                         <ImageView fitHeight="48.0" fitWidth="59.0" layoutX="10.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="https://dorigoimage.files.wordpress.com/2019/08/wp-15646347937261736051633475623814.jpg" />
+                                <Image url="@cuisine_180.png" />
                             </image>
                         </ImageView>
                         <TextArea layoutX="69.0" layoutY="177.0" prefHeight="44.0" prefWidth="80.0" text="Food Name&#10;Date" />
@@ -77,70 +76,36 @@
                         <Separator layoutY="286.0" prefHeight="0.0" prefWidth="162.0" />
                     </children>
                 </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="502.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="429.0">
                     <children>
                         <ScrollBar layoutX="415.0" orientation="VERTICAL" prefHeight="353.0" prefWidth="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="415.0" AnchorPane.topAnchor="0.0" />
-                        <DatePicker fx:id="dpicker" layoutX="103.0" layoutY="29.0" onAction="#Dpicker" prefHeight="26.0" prefWidth="183.0" promptText="Select Date" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" layoutY="-1.0" prefHeight="30.0" prefWidth="200.0" text="Reserve Your Meal ">
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" prefHeight="30.0" prefWidth="200.0" text="Reservation History">
                             <font>
                                 <Font size="20.0" />
                             </font></Label>
-                        <MenuButton fx:id="seltime" layoutX="103.0" layoutY="55.0" mnemonicParsing="false" onAction="#SelTime" prefHeight="26.0" prefWidth="183.0" text="Select Time">
+                        <Separator layoutX="-42.0" layoutY="101.0" prefHeight="3.0" prefWidth="429.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0" />
+                        <Label layoutX="10.0" layoutY="29.0" text="Future Orders" />
+                        <Label layoutX="10.0" layoutY="126.0" text="Past Orders" />
+                        <Button fx:id="futureok" layoutX="379.0" layoutY="87.0" mnemonicParsing="false" onAction="#FutureOk" prefHeight="26.0" prefWidth="35.0" text="ok" />
+                        <MenuButton fx:id="viewfuture" layoutX="10.0" layoutY="46.0" mnemonicParsing="false" onAction="#ViewFuture" prefHeight="26.0" prefWidth="259.0" text="View Future Order">
                             <items>
-                                <MenuItem fx:id="seltime1" mnemonicParsing="false" onAction="#SelTime1" text="12:10-12:20" />
-                                <MenuItem fx:id="seltime2" mnemonicParsing="false" onAction="#SelTime2" text="12:20-12:25" />
-                                <MenuItem fx:id="seltime3" mnemonicParsing="false" onAction="#SelTime3" text="12:25-12:30" />
+                                <MenuItem fx:id="viewfuture1" mnemonicParsing="false" onAction="#ViewFuture1" text="Action 1" />
+                                <MenuItem fx:id="viewfuture2" mnemonicParsing="false" onAction="#ViewFuture2" text="Action 2" />
                             </items>
                         </MenuButton>
-                        <Label layoutX="14.0" layoutY="119.0" prefHeight="17.0" prefWidth="78.0" text="Truffle Rice" />
-                        <Label layoutX="205.0" layoutY="119.0" prefHeight="17.0" prefWidth="105.0" text="Meat Spaghetti" />
-                        <Label layoutX="14.0" layoutY="234.0" prefHeight="17.0" prefWidth="59.0" text="Rice Bolls" />
-                        <Label layoutX="224.0" layoutY="234.0" prefHeight="17.0" prefWidth="68.0" text="Hot Dog " />
-                        <ImageView fitHeight="48.0" fitWidth="59.0" layoutX="14.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="https://assets.juksy.com/files/articles/110060/800x_100_w-619df64e2deac.jpg" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="48.0" fitWidth="59.0" layoutX="228.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="https://obs.line-scdn.net/0h8xz1SrMxZ1dHSE5N75wYAH4eZDh0JHRUI342VAQmOWM9fnVRfycqYmsYaTJpeCAJKXkgMmsNODU5cHJTfSw/w644" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="48.0" fitWidth="59.0" layoutX="14.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/%E9%A6%99%E8%85%B8%E9%A6%99%E8%BE%A3%E9%86%AC%E9%BB%83%E9%87%91%E8%9B%8B%E7%82%92%E9%A3%AF-1599537568.jpg?crop=1.00xw:0.915xh;0,0.0528xhresize=768:*" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="48.0" fitWidth="59.0" layoutX="228.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="https://images.chinatimes.com/newsphoto/2021-03-22/1024/20210322002986.jpg" />
-                            </image>
-                        </ImageView>
-                        <TextArea layoutX="73.0" layoutY="120.0" prefHeight="67.0" prefWidth="105.0" text="Food Description" />
-                        <TextArea layoutX="293.0" layoutY="121.0" prefHeight="67.0" prefWidth="105.0" text="Food Description" />
-                        <TextArea layoutX="73.0" layoutY="234.0" prefHeight="67.0" prefWidth="105.0" text="Food Description" />
-                        <TextArea layoutX="293.0" layoutY="234.0" prefHeight="67.0" prefWidth="105.0" text="Food Description" />
-                        <CheckBox fx:id="sel1" layoutX="73.0" layoutY="190.0" mnemonicParsing="false" onAction="#SelCheck" text="Select" />
-                        <CheckBox fx:id="sel2" layoutX="293.0" layoutY="190.0" mnemonicParsing="false" onAction="#SelCheck" text="Select" />
-                        <CheckBox fx:id="sel4" layoutX="293.0" layoutY="303.0" mnemonicParsing="false" onAction="#SelCheck" text="Select" />
-                        <CheckBox fx:id="sel3" layoutX="73.0" layoutY="303.0" mnemonicParsing="false" onAction="#SelCheck" text="Select" />
-                        <MenuButton fx:id="foodtyp" layoutX="103.0" layoutY="81.0" mnemonicParsing="false" onAction="#FoodTyp" prefHeight="26.0" prefWidth="183.0" text="Food Type">
+                        <MenuButton fx:id="viewpast" layoutX="10.0" layoutY="143.0" mnemonicParsing="false" onAction="#ViewPast" prefHeight="26.0" prefWidth="259.0" text="View Past Order">
                             <items>
-                                <MenuItem fx:id="food1" mnemonicParsing="false" onAction="#SelFood1" text="All" />
-                                <MenuItem fx:id="food2" mnemonicParsing="false" onAction="#SelFood2" text="7-11" />
-                                <MenuItem fx:id="food3" mnemonicParsing="false" onAction="#SelFood3" text="Court 1" />
-                                <MenuItem fx:id="food4" mnemonicParsing="false" onAction="#SelFood4" text="Court 2" />
+                                <MenuItem fx:id="viewpast1" mnemonicParsing="false" onAction="#ViewPast1" text="Action 1" />
+                                <MenuItem fx:id="viewpast2" mnemonicParsing="false" onAction="#ViewPast2" text="Action 2" />
                             </items>
                         </MenuButton>
-                        <Button fx:id="canorder" layoutX="238.0" layoutY="326.0" mnemonicParsing="false" onAction="#CanOrder" prefHeight="26.0" prefWidth="96.0" text="Cancel" />
-                        <Button fx:id="suborder" layoutX="102.0" layoutY="326.0" mnemonicParsing="false" onAction="#SubOrder" prefHeight="26.0" prefWidth="96.0" text="Submit Order" />
                     </children>
                 </AnchorPane>
             </items>
         </SplitPane>
         <ImageView fitHeight="50.0" fitWidth="155.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="https://static1.squarespace.com/static/5b63f8cf75f9eec8d6f614e7/t/5da91401d538bf2034fde99f/1642493008001/" />
+                <Image url="@截圖%202021-12-03%20上午11.41.34.png" />
             </image>
         </ImageView>
     </children>

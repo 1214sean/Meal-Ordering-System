@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
         String AccountPass_relative_path = Configs.base + "AccountPass.csv";
         String Orderviewi_relative_path = Configs.base + "orderview_commun_i.csv";
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LobbyPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminEdit.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Hello!");
         stage.setScene(scene);

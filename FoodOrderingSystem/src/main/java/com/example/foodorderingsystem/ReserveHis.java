@@ -303,7 +303,7 @@ public class ReserveHis {
 }
 
 
-class CustomComparator implements Comparator<List<String>>
+class CustomComparator implements Comparator<List<String>> //判斷日期順序 整理資料排列從最新到最舊
 {
     @Override
     public int compare(List<String> o1,
