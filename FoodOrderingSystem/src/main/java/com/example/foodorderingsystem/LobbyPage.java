@@ -6,10 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -333,8 +336,26 @@ public class LobbyPage {
 
 
     @FXML
-    void SelFood2(ActionEvent event) {
+    void SelFood2(ActionEvent event) throws IOException {
         foodtyp.setText(food2.getText());
+        List<List<String>> a=read_711();
+        Food_Item_01.setText(a.get(0).get(0));
+        Food_Item_02.setText(a.get(1).get(0));
+        Food_Item_03.setText(a.get(2).get(0));
+        Food_Item_04.setText(a.get(3).get(0));
+        ItemDiscript_01.setText(a.get(0).get(1));
+        ItemDiscript_02.setText(a.get(1).get(1));
+        ItemDiscript_03.setText(a.get(2).get(1));
+        ItemDiscript_04.setText(a.get(3).get(1));
+        Price_01.setText(a.get(0).get(2));
+        Price_01.setText(a.get(1).get(2));
+        Price_01.setText(a.get(2).get(2));
+        Price_01.setText(a.get(3).get(2));
+
+        Image image = new Image("https://www.recipetineats.com/wp-content/uploads/2014/07/Vietnamese-Rice-Paper-Rolls-7.jpg");
+        ItemPic_01= new ImageView(image);
+
+
 
 
     }
@@ -370,7 +391,7 @@ public class LobbyPage {
         String Local_T=LocalTime.now().toString();
         System.out.println(Local_T);
 
-        List<List<String>> a=read();
+        List<List<String>> a=read_studentOrder();
         List<String> x=new ArrayList<>();
 
         x.add(date.toString());
@@ -406,10 +427,29 @@ public class LobbyPage {
 
     }
 
-    private static List<List<String>> read() {
+    private static List<List<String>> read_studentOrder() {
 
         List<List<String>> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrder.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(records.toString());
+        return records;
+    }
+
+
+    private static List<List<String>> read_711() {
+
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "7-11.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
