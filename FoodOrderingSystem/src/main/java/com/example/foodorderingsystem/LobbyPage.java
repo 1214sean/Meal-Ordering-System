@@ -177,7 +177,7 @@ public class LobbyPage {
 
     @FXML
     protected void initialize() {
-        List<List<String>> a=read_three();
+        List<List<String>> a=read_studentOrder();
         if (a.size()==1){
             RO_Item01.setText(String.valueOf(a.get(0).get(2)));
             RO_Date01.setText(String.valueOf(a.get(0).get(0)));
@@ -188,12 +188,12 @@ public class LobbyPage {
             RO_Item02.setText(String.valueOf(a.get(1).get(2)));
             RO_Date02.setText(String.valueOf(a.get(1).get(0)));
         }else{
-            RO_Item01.setText(String.valueOf(a.get(0).get(2)));
-            RO_Date01.setText(String.valueOf(a.get(0).get(0)));
-            RO_Item02.setText(String.valueOf(a.get(1).get(2)));
-            RO_Date02.setText(String.valueOf(a.get(1).get(0)));
-            RO_Item03.setText(String.valueOf(a.get(2).get(2)));
-            RO_Date03.setText(String.valueOf(a.get(2).get(0)));
+            RO_Item01.setText(String.valueOf(a.get(a.size()-1).get(2)));
+            RO_Date01.setText(String.valueOf(a.get(a.size()-1).get(0)));
+            RO_Item02.setText(String.valueOf(a.get(a.size()-2).get(2)));
+            RO_Date02.setText(String.valueOf(a.get(a.size()-2).get(0)));
+            RO_Item03.setText(String.valueOf(a.get(a.size()-3).get(2)));
+            RO_Date03.setText(String.valueOf(a.get(a.size()-3).get(0)));
 
         }
 
@@ -352,10 +352,9 @@ public class LobbyPage {
         Price_01.setText(a.get(2).get(2));
         Price_01.setText(a.get(3).get(2));
 
-        Image image = new Image("https://www.recipetineats.com/wp-content/uploads/2014/07/Vietnamese-Rice-Paper-Rolls-7.jpg");
-        ItemPic_01= new ImageView(image);
-
-
+        String url = "https://www.recipetineats.com/wp-content/uploads/2014/07/Vietnamese-Rice-Paper-Rolls-7.jpg";
+        Image image = new Image(url);
+        ItemPic_01.setImage(image);
 
 
     }
@@ -465,7 +464,7 @@ public class LobbyPage {
     }
 
 
-    private static List<List<String>> read_three() {
+    /*private static List<List<String>> read_three() {
 
         int x=0;
 
@@ -484,7 +483,7 @@ public class LobbyPage {
         }
         System.out.println(records.toString());
         return records;
-    }
+    }*/
 
     private static void write(List<List<String>> data) {
         String ans = "";
