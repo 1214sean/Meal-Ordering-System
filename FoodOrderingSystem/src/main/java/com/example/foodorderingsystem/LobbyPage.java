@@ -412,45 +412,75 @@ public class LobbyPage {
 
         List<List<String>> b=read_studentOrder();
         List<String> c=new ArrayList<>();
-        c.add(date.toString());
-        c.add(fti);
-        c.add(fty);
-        b.add(c);
-        write_SO(b);
+
 
 
         if(sel1.isSelected()||sel2.isSelected()|| sel3.isSelected()||sel4.isSelected()==true) {
-
+            c.add(date.toString());
+            c.add(fti);
+            c.add(fty);
+            b.add(c);
+            write_SO(b);
             suborder.setText("Submitted!!");
         }
         else {
             suborder.setText("Select Again");
         }
 
+        //寫進總價
+
         List<List<String>> a=read_studentOrderItems();
         List<String> x=new ArrayList<>();
+        int total_price=0;
 
         if(sel1.isSelected()==true)
-            x.add(Food_Item_01.getText());
+            total_price=Integer.parseInt(Price_01.getText());
         else {}
 
 
-
         if(sel2.isSelected()==true)
-            x.add(Food_Item_02.getText());
+            total_price=total_price+Integer.parseInt(Price_02.getText());
         else {}
 
 
         if(sel3.isSelected()==true)
-            x.add(Food_Item_03.getText());
+            total_price=total_price+Integer.parseInt(Price_03.getText());
         else {}
 
         if(sel4.isSelected()==true)
-            x.add(Food_Item_04.getText());
+            total_price=total_price+Integer.parseInt(Price_04.getText());
         else {}
 
+        String tp=String.valueOf(total_price);
+        x.add(tp);
         a.add(x);
-        write_SOI(a);  
+        write_SOP(a);
+
+
+        //寫進物品
+        List<List<String>> d=read_studentOrderPrice();
+        List<String> e=new ArrayList<>();
+
+        if(sel1.isSelected()==true)
+            e.add(Food_Item_01.getText());
+        else {}
+
+        
+        if(sel2.isSelected()==true)
+            e.add(Food_Item_02.getText());
+        else {}
+
+
+        if(sel3.isSelected()==true)
+            e.add(Food_Item_03.getText());
+        else {}
+
+        if(sel4.isSelected()==true)
+            e.add(Food_Item_04.getText());
+        else {}
+
+        d.add(e);
+        write_SOI(d);
 
 
     }
@@ -496,6 +526,24 @@ public class LobbyPage {
 
         List<List<String>> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrderItems.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(records.toString());
+        return records;
+    }
+
+    private static List<List<String>> read_studentOrderPrice() {
+
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrderPrice.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
