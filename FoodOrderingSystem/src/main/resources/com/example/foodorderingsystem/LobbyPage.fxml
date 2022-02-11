@@ -95,30 +95,14 @@
                                 <MenuItem fx:id="seltime3" mnemonicParsing="false" onAction="#SelTime3" text="12:25-12:30" />
                             </items>
                         </MenuButton>
-                        <Label fx:id="Food_Item_01" layoutX="14.0" layoutY="119.0" prefHeight="17.0" prefWidth="78.0" text="Truffle Rice" />
-                        <Label fx:id="Food_Item_02" layoutX="205.0" layoutY="119.0" prefHeight="17.0" prefWidth="105.0" text="Meat Spaghetti" />
-                        <Label fx:id="Food_Item_03" layoutX="14.0" layoutY="234.0" prefHeight="17.0" prefWidth="59.0" text="Rice Bolls" />
-                        <Label fx:id="Food_Item_04" layoutX="224.0" layoutY="234.0" prefHeight="17.0" prefWidth="68.0" text="Hot Dog " />
-                        <ImageView fx:id="ItemPic_01" fitHeight="48.0" fitWidth="59.0" layoutX="14.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="file:/Users/sean/Desktop/rsUQglw.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fx:id="ItemPic_02" fitHeight="48.0" fitWidth="59.0" layoutX="228.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="file:/Users/sean/Desktop/rsUQglw.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fx:id="ItemPic_03" fitHeight="48.0" fitWidth="59.0" layoutX="14.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="file:/Users/sean/Desktop/rsUQglw.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fx:id="ItemPic_04" fitHeight="48.0" fitWidth="59.0" layoutX="228.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="file:/Users/sean/Desktop/rsUQglw.png" />
-                            </image>
-                        </ImageView>
+                        <Label fx:id="Food_Item_01" layoutX="14.0" layoutY="119.0" prefHeight="17.0" prefWidth="78.0" text="Item1" />
+                        <Label fx:id="Food_Item_02" layoutX="205.0" layoutY="119.0" prefHeight="17.0" prefWidth="105.0" text="Item2" />
+                        <Label fx:id="Food_Item_03" layoutX="14.0" layoutY="234.0" prefHeight="17.0" prefWidth="59.0" text="Item3" />
+                        <Label fx:id="Food_Item_04" layoutX="224.0" layoutY="234.0" prefHeight="17.0" prefWidth="68.0" text="Item4" />
+                        <ImageView fx:id="ItemPic_01" fitHeight="48.0" fitWidth="59.0" layoutX="14.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="ItemPic_02" fitHeight="48.0" fitWidth="59.0" layoutX="228.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="ItemPic_03" fitHeight="48.0" fitWidth="59.0" layoutX="14.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="ItemPic_04" fitHeight="48.0" fitWidth="59.0" layoutX="228.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" />
                         <TextArea fx:id="ItemDiscript_01" layoutX="73.0" layoutY="120.0" prefHeight="67.0" prefWidth="105.0" text="Food Description" />
                         <TextArea fx:id="ItemDiscript_02" layoutX="293.0" layoutY="121.0" prefHeight="67.0" prefWidth="105.0" text="Food Description" />
                         <TextArea fx:id="ItemDiscript_03" layoutX="73.0" layoutY="234.0" prefHeight="67.0" prefWidth="105.0" text="Food Description" />

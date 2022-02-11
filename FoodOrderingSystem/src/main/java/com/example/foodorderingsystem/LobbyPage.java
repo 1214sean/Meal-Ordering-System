@@ -350,14 +350,28 @@ public class LobbyPage {
         ItemDiscript_02.setText(a.get(1).get(1));
         ItemDiscript_03.setText(a.get(2).get(1));
         ItemDiscript_04.setText(a.get(3).get(1));
-        Price_01.setText(a.get(0).get(2));
-        Price_01.setText(a.get(1).get(2));
-        Price_01.setText(a.get(2).get(2));
-        Price_01.setText(a.get(3).get(2));
+        Price_01.setText(a.get(0).get(2)+"NTD");
+        Price_02.setText(a.get(1).get(2)+"NTD");
+        Price_03.setText(a.get(2).get(2)+"NTD");
+        Price_04.setText(a.get(3).get(2)+"NTD");
 
-        String url = "https://www.recipetineats.com/wp-content/uploads/2014/07/Vietnamese-Rice-Paper-Rolls-7.jpg";
+        //String url = "https://www.recipetineats.com/wp-content/uploads/2014/07/Vietnamese-Rice-Paper-Rolls-7.jpg";\
+        String url = a.get(0).get(3);
         Image image = new Image(url);
         ItemPic_01.setImage(image);
+
+        String url2 = a.get(1).get(3);
+        Image image2 = new Image(url2);
+        ItemPic_02.setImage(image2);
+
+        String url3 = a.get(2).get(3);
+        Image image3 = new Image(url3);
+        ItemPic_03.setImage(image3);
+
+        String url4 = a.get(3).get(3);
+        Image image4 = new Image(url4);
+        ItemPic_04.setImage(image4);
+
 
 
     }
@@ -384,6 +398,9 @@ public class LobbyPage {
 
     @FXML
     void SubOrder(ActionEvent event) {
+
+
+        // 到時候整個寫到 if else的 if 裏面
         LocalDate date = dpicker.getValue();
         System.out.println(date);
         String fti=seltime.getText();
@@ -393,24 +410,16 @@ public class LobbyPage {
         String Local_T=LocalTime.now().toString();
         System.out.println(Local_T);
 
-        List<List<String>> a=read_studentOrder();
-        List<String> x=new ArrayList<>();
-
-        x.add(date.toString());
-        x.add(fti);
-        x.add(fty);
-
-        a.add(x);
-        write(a);
-
-        // 到時候整個寫到 if else的 if 裏面
-
-
-
+        List<List<String>> b=read_studentOrder();
+        List<String> c=new ArrayList<>();
+        c.add(date.toString());
+        c.add(fti);
+        c.add(fty);
+        b.add(c);
+        write_SO(b);
 
 
         if(sel1.isSelected()||sel2.isSelected()|| sel3.isSelected()||sel4.isSelected()==true) {
-
 
             suborder.setText("Submitted!!");
         }
@@ -418,13 +427,30 @@ public class LobbyPage {
             suborder.setText("Select Again");
         }
 
+        List<List<String>> a=read_studentOrderItems();
+        List<String> x=new ArrayList<>();
+
+        if(sel1.isSelected()==true)
+            x.add(Food_Item_01.getText());
+        else {}
 
 
 
+        if(sel2.isSelected()==true)
+            x.add(Food_Item_02.getText());
+        else {}
 
 
+        if(sel3.isSelected()==true)
+            x.add(Food_Item_03.getText());
+        else {}
 
+        if(sel4.isSelected()==true)
+            x.add(Food_Item_04.getText());
+        else {}
 
+        a.add(x);
+        write_SOI(a);  
 
 
     }
@@ -466,6 +492,24 @@ public class LobbyPage {
         return records;
     }
 
+    private static List<List<String>> read_studentOrderItems() {
+
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrderItems.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(records.toString());
+        return records;
+    }
+
 
     /*private static List<List<String>> read_three() {
 
@@ -488,7 +532,7 @@ public class LobbyPage {
         return records;
     }*/
 
-    private static void write(List<List<String>> data) {
+    private static void write_SO(List<List<String>> data) {
         String ans = "";
         for(int i = 0; i < data.size(); i++) {
             for(int j = 0; j < data.get(i).size(); j++) {
@@ -501,6 +545,54 @@ public class LobbyPage {
 
         try {
             FileWriter myWriter = new FileWriter(Configs.base + "StudentOrder.csv");
+            myWriter.write(ans);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private static void write_SOI(List<List<String>> data) {
+        String ans = "";
+        for(int i = 0; i < data.size(); i++) {
+            for(int j = 0; j < data.get(i).size(); j++) {
+                ans += String.valueOf(data.get(i).get(j));
+                if(j != data.get(i).size() - 1) ans += ",";
+            }
+            if(i != data.size() - 1) ans += "\n";
+        }
+        System.out.print(ans);
+
+        try {
+            FileWriter myWriter = new FileWriter(Configs.base + "StudentOrderItems.csv");
+            myWriter.write(ans);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private static void write_SOP(List<List<String>> data) {
+        String ans = "";
+        for(int i = 0; i < data.size(); i++) {
+            for(int j = 0; j < data.get(i).size(); j++) {
+                ans += String.valueOf(data.get(i).get(j));
+                if(j != data.get(i).size() - 1) ans += ",";
+            }
+            if(i != data.size() - 1) ans += "\n";
+        }
+        System.out.print(ans);
+
+        try {
+            FileWriter myWriter = new FileWriter(Configs.base + "StudentOrderPrice.csv");
             myWriter.write(ans);
             myWriter.close();
             System.out.println("Successfully wrote to the file.");

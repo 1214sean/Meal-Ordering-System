@@ -87,6 +87,15 @@ public class ReserveHis {
     private MenuItem viewpast2;
 
     @FXML
+    int orderClicked(ActionEvent event, int i) {
+        System.out.println(i);
+        write_i(i);
+
+
+        return i;
+    }
+
+    @FXML
     protected void initialize() {
         System.out.println("RESERVEHISSS!!!!");
         //read();
@@ -180,14 +189,7 @@ public class ReserveHis {
 
     }
 
-    @FXML
-    int orderClicked(ActionEvent event, int i) {
-        System.out.println(i);
-        write_i(i);
 
-
-        return i;
-    }
 
     @FXML
     void FutureOk(ActionEvent event) throws IOException {
