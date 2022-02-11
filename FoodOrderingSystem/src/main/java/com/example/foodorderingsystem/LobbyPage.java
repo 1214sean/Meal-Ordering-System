@@ -453,7 +453,7 @@ public class LobbyPage {
 
         d.add(e);
         write_SOI(d);
-        
+
 
         //寫進總價
 
