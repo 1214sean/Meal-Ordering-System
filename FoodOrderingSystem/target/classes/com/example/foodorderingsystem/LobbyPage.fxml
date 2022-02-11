@@ -45,7 +45,7 @@
                     <children>
                         <ImageView fitHeight="60.0" fitWidth="80.0" layoutX="10.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="39.0">
                             <image>
-                                <Image url="@istockphoto-1191487541-170667a.jpg" />
+                                <Image url="https://dvblobcdnjp.azureedge.net//Content/Upload/Popular/Images/2020-10/2c85810b-0dc4-44bb-a4bb-4c15e7cd7a5e_m.jpg" />
                             </image>
                         </ImageView>
                         <Label layoutX="11.0" layoutY="14.0" prefHeight="17.0" prefWidth="78.0" text="Personl Info" />
@@ -144,5 +144,10 @@
                 </AnchorPane>
             </items>
         </SplitPane>
+        <ImageView fx:id="Logo" fitHeight="44.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="https://images.squarespace-cdn.com/content/v1/5b63f8cf75f9eec8d6f614e7/1571361793168-6RTZY4KHL5KEORW2750E/%E4%BF%A1%E7%B4%99-%E5%AE%9A%E6%A1%88%E7%89%88_logo%E6%9B%B4%E6%AD%A3-02.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>

@@ -49,6 +49,9 @@ public class LobbyPage {
     private TextArea ItemDiscript_04;
 
     @FXML
+    private ImageView Logo;
+
+    @FXML
     private ImageView ItemPic_01;
 
     @FXML
