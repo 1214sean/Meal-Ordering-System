@@ -10,7 +10,6 @@
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -21,14 +20,23 @@
     <children>
         <MenuBar layoutX="155.0" layoutY="-1.0" prefHeight="48.0" prefWidth="446.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
             <menus>
-                <Menu mnemonicParsing="false" text="Sign Out" />
-                <Menu mnemonicParsing="false" text="Reservation History" />
-                <Menu mnemonicParsing="false" text="Account">
+                <Menu mnemonicParsing="false" text="Sign Out">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Personal Info" />
+                        <MenuItem fx:id="ok1" mnemonicParsing="false" onAction="#Ok1" text="ok" />
+                    </items></Menu>
+                <Menu mnemonicParsing="false" text="Reservation History">
+                    <items>
+                        <MenuItem fx:id="ok2" mnemonicParsing="false" onAction="#Ok2" text="ok" />
+                    </items></Menu>
+                <Menu mnemonicParsing="false" text="Personal Info">
+                    <items>
+                        <MenuItem fx:id="ok3" mnemonicParsing="false" onAction="#Ok3" text="ok" />
                     </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Reserve Meal " />
+                <Menu mnemonicParsing="false" text="Reserve Meal ">
+                    <items>
+                        <MenuItem fx:id="ok4" mnemonicParsing="false" onAction="#Ok4" text="ok" />
+                    </items></Menu>
             </menus>
         </MenuBar>
         <SplitPane dividerPositions="0.27675585284280935" layoutX="-5.0" layoutY="46.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
@@ -37,7 +45,7 @@
                     <children>
                         <ImageView fitHeight="60.0" fitWidth="80.0" layoutX="10.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="39.0">
                             <image>
-                                <Image url="@Desktop/istockphoto-1191487541-170667a.jpg" />
+                                <Image url="https://dvblobcdnjp.azureedge.net//Content/Upload/Popular/Images/2020-10/2c85810b-0dc4-44bb-a4bb-4c15e7cd7a5e_m.jpg" />
                             </image>
                         </ImageView>
                         <Label layoutX="11.0" layoutY="14.0" prefHeight="17.0" prefWidth="78.0" text="Personl Info" />
@@ -46,7 +54,6 @@
                         <Label layoutX="93.0" layoutY="75.0" prefHeight="18.0" prefWidth="59.0" text="Name" />
                         <Label layoutX="93.0" layoutY="94.0" prefHeight="18.0" prefWidth="59.0" text="Sean" />
                         <Separator layoutY="133.0" prefHeight="0.0" prefWidth="162.0" />
-                        <Label layoutX="11.0" layoutY="147.0" text="Recent Orders" />
                         <ImageView fitHeight="48.0" fitWidth="59.0" layoutX="10.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@Desktop/rsUQglw.png" />
@@ -62,11 +69,6 @@
                                 <Image url="@Desktop/cuisine_180.png" />
                             </image>
                         </ImageView>
-                        <TextArea layoutX="69.0" layoutY="177.0" prefHeight="44.0" prefWidth="80.0" text="Food Name&#10;Date" />
-                        <TextArea layoutX="69.0" layoutY="236.0" prefHeight="44.0" prefWidth="80.0" text="Food Name&#10;Date" />
-                        <TextArea layoutX="69.0" layoutY="295.0" prefHeight="44.0" prefWidth="80.0" text="Food Name&#10;Date&#10;&#10;" />
-                        <Separator layoutY="227.0" prefHeight="0.0" prefWidth="162.0" />
-                        <Separator layoutY="286.0" prefHeight="0.0" prefWidth="162.0" />
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="502.0">
@@ -82,7 +84,7 @@
                                     <content>
                                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                             <children>
-                                                <Label prefHeight="17.0" prefWidth="170.0" text="#000001" />
+                                                <Label fx:id="ordernum" prefHeight="17.0" prefWidth="170.0" text="#000001" />
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -102,6 +104,7 @@
                                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                             <children>
                                                 <ListView prefHeight="200.0" prefWidth="200.0" />
+                                                <Label fx:id="Item1" layoutY="6.0" prefHeight="17.0" prefWidth="170.0" text="Items" />
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -110,8 +113,7 @@
                                     <content>
                                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                             <children>
-                                                <Label layoutX="7.0" layoutY="6.0" prefHeight="17.0" prefWidth="170.0" text="Wallet Balance Before" />
-                                                <Label layoutX="7.0" layoutY="24.0" prefHeight="17.0" prefWidth="170.0" text="Wallet Balance After" />
+                                                <Label fx:id="totalprice" layoutX="7.0" layoutY="6.0" prefHeight="17.0" prefWidth="170.0" text="Total Price" />
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -119,18 +121,13 @@
                             </panes>
                         </Accordion>
                         <Button fx:id="delete_order" layoutX="295.0" layoutY="306.0" mnemonicParsing="false" onAction="#Delete_Order" text="Delete Order" />
-                        <Button layoutX="388.0" layoutY="5.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="16.0" text="X">
-                            <font>
-                                <Font size="10.0" />
-                            </font>
-                        </Button>
                     </children>
                 </AnchorPane>
             </items>
         </SplitPane>
         <ImageView fitHeight="50.0" fitWidth="155.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@Desktop/截圖%202021-12-03%20上午11.41.34.png" />
+                <Image url="https://images.squarespace-cdn.com/content/v1/5b63f8cf75f9eec8d6f614e7/1571361793168-6RTZY4KHL5KEORW2750E/%E4%BF%A1%E7%B4%99-%E5%AE%9A%E6%A1%88%E7%89%88_logo%E6%9B%B4%E6%AD%A3-02.png" />
             </image>
         </ImageView>
     </children>

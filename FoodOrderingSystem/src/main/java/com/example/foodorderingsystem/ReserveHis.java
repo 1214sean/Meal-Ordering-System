@@ -71,20 +71,12 @@ public class ReserveHis {
     @FXML
     private MenuButton viewfuture;
 
-    @FXML
-    private MenuItem viewfuture1;
 
-    @FXML
-    private MenuItem viewfuture2;
 
     @FXML
     private MenuButton viewpast;
 
-    @FXML
-    private MenuItem viewpast1;
 
-    @FXML
-    private MenuItem viewpast2;
 
     @FXML
     int orderClicked(ActionEvent event, int i) {
@@ -159,12 +151,14 @@ public class ReserveHis {
 
 
 
-            List<List<String>> a=read_studentOrder();
-            if (a.size()==1){
-                RO_Item01.setText(String.valueOf(a.get(0).get(2)));
-                RO_Date01.setText(String.valueOf(a.get(0).get(0)));
+        List<List<String>> a=read_studentOrder();
+        if (a.size()==0) {
 
-            }else if (a.size()==2){
+        }else if (a.size()==1){
+            RO_Item01.setText(String.valueOf(a.get(0).get(2)));
+            RO_Date01.setText(String.valueOf(a.get(0).get(0)));
+
+        }else if (a.size()==2){
                 RO_Item01.setText(String.valueOf(a.get(0).get(2)));
                 RO_Date01.setText(String.valueOf(a.get(0).get(0)));
                 RO_Item02.setText(String.valueOf(a.get(1).get(2)));
@@ -277,15 +271,7 @@ public class ReserveHis {
 
     }
 
-    @FXML
-    void ViewPast1(ActionEvent event) {
 
-    }
-
-    @FXML
-    void ViewPast2(ActionEvent event) {
-
-    }
 
     private static List<List<String>> read() {
 
@@ -331,7 +317,7 @@ public class ReserveHis {
 
     } */
 
-    private void changeviewfuture1(List<List<String>> data) {
+    /*private void changeviewfuture1(List<List<String>> data) {
         String ans = "";
         for(int i = 0; i < data.size(); i++) {
             for(int j = 0; j < data.get(i).size(); j++) {
@@ -344,7 +330,7 @@ public class ReserveHis {
 
 
 
-    }
+    } */
 
     private static void write_i(int i) {
         System.out.println(i);

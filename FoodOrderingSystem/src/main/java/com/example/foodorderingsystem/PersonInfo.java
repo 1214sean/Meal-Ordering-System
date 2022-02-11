@@ -84,7 +84,9 @@ public class PersonInfo {
     @FXML
     protected void initialize() {
         List<List<String>> a=read_studentOrder();
-        if (a.size()==1){
+        if (a.size()==0) {
+
+        }else if (a.size()==1){
             RO_Item01.setText(String.valueOf(a.get(0).get(2)));
             RO_Date01.setText(String.valueOf(a.get(0).get(0)));
 

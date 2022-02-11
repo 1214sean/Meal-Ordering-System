@@ -181,7 +181,9 @@ public class LobbyPage {
     @FXML
     protected void initialize() {
         List<List<String>> a=read_studentOrder();
-        if (a.size()==1){
+        if (a.size()==0) {
+
+        }else if (a.size()==1){
             RO_Item01.setText(String.valueOf(a.get(0).get(2)));
             RO_Date01.setText(String.valueOf(a.get(0).get(0)));
 
@@ -462,21 +464,21 @@ public class LobbyPage {
         int total_price=0;
 
         if(sel1.isSelected()==true)
-            total_price=Integer.parseInt(Price_01.getText());
+            total_price=Integer.parseInt(Price_01.getText().replaceAll("NTD",""));
         else {}
 
 
         if(sel2.isSelected()==true)
-            total_price=total_price+Integer.parseInt(Price_02.getText());
+            total_price=total_price+Integer.parseInt(Price_02.getText().replaceAll("NTD",""));
         else {}
 
 
         if(sel3.isSelected()==true)
-            total_price=total_price+Integer.parseInt(Price_03.getText());
+            total_price=total_price+Integer.parseInt(Price_03.getText().replaceAll("NTD",""));
         else {}
 
         if(sel4.isSelected()==true)
-            total_price=total_price+Integer.parseInt(Price_04.getText());
+            total_price=total_price+Integer.parseInt(Price_04.getText().replaceAll("NTD",""));
         else {}
 
         String tp=String.valueOf(total_price);

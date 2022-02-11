@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class AdminEdit {
 
@@ -18,7 +20,31 @@ public class AdminEdit {
     private MenuItem food4;
 
     @FXML
+    private TextArea food_des1;
+
+    @FXML
+    private TextArea food_des2;
+
+    @FXML
+    private TextArea food_des3;
+
+    @FXML
+    private TextArea food_des4;
+
+    @FXML
     private MenuButton foodtyp;
+
+    @FXML
+    private TextField item1;
+
+    @FXML
+    private TextField item2;
+
+    @FXML
+    private TextField item3;
+
+    @FXML
+    private TextField item4;
 
     @FXML
     private MenuItem ok1;
@@ -33,20 +59,47 @@ public class AdminEdit {
     private MenuItem ok4;
 
     @FXML
+    private TextField price1;
+
+    @FXML
+    private TextField price2;
+
+    @FXML
+    private TextField price3;
+
+    @FXML
+    private TextField price4;
+
+    @FXML
     private Button save;
 
     @FXML
+    private TextField url1;
+
+    @FXML
+    private TextField url2;
+
+    @FXML
+    private TextField url3;
+
+    @FXML
+    private TextField url4;
+
+    @FXML
     void Food2(ActionEvent event) {
+        foodtyp.setText("7-11");
 
     }
 
     @FXML
     void Food3(ActionEvent event) {
+        foodtyp.setText("Court1");
 
     }
 
     @FXML
     void Food4(ActionEvent event) {
+        foodtyp.setText("Court2");
 
     }
 
@@ -77,6 +130,8 @@ public class AdminEdit {
 
     @FXML
     void Save(ActionEvent event) {
+        String a= item1.getText();
+
 
     }
 

@@ -89,18 +89,8 @@
                         <Label layoutX="10.0" layoutY="29.0" text="Future Orders" />
                         <Label layoutX="10.0" layoutY="126.0" text="Past Orders" />
                         <Button fx:id="futureok" layoutX="379.0" layoutY="87.0" mnemonicParsing="false" onAction="#FutureOk" prefHeight="26.0" prefWidth="35.0" text="ok" />
-                        <MenuButton fx:id="viewfuture" layoutX="10.0" layoutY="46.0" mnemonicParsing="false" onAction="#ViewFuture" prefHeight="26.0" prefWidth="259.0" text="View Future Order">
-                            <items>
-                                <MenuItem fx:id="viewfuture1" mnemonicParsing="false" onAction="#ViewFuture1" text="Action 1" />
-                                <MenuItem fx:id="viewfuture2" mnemonicParsing="false" onAction="#ViewFuture2" text="Action 2" />
-                            </items>
-                        </MenuButton>
-                        <MenuButton fx:id="viewpast" layoutX="10.0" layoutY="143.0" mnemonicParsing="false" onAction="#ViewPast" prefHeight="26.0" prefWidth="259.0" text="View Past Order">
-                            <items>
-                                <MenuItem fx:id="viewpast1" mnemonicParsing="false" onAction="#ViewPast1" text="Action 1" />
-                                <MenuItem fx:id="viewpast2" mnemonicParsing="false" onAction="#ViewPast2" text="Action 2" />
-                            </items>
-                        </MenuButton>
+                        <MenuButton fx:id="viewfuture" layoutX="10.0" layoutY="46.0" mnemonicParsing="false" onAction="#ViewFuture" prefHeight="26.0" prefWidth="259.0" text="View Future Order" />
+                        <MenuButton fx:id="viewpast" layoutX="10.0" layoutY="143.0" mnemonicParsing="false" onAction="#ViewPast" prefHeight="26.0" prefWidth="259.0" text="View Past Order" />
                         <Button fx:id="pastok" layoutX="379.0" layoutY="177.0" mnemonicParsing="false" onAction="#PastOk" prefHeight="26.0" prefWidth="35.0" text="ok" />
                     </children>
                 </AnchorPane>
@@ -113,3 +103,4 @@
         </ImageView>
     </children>
 </AnchorPane>
+

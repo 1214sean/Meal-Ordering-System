@@ -1,11 +1,13 @@
 package com.example.foodorderingsystem;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -20,14 +22,34 @@ public class HisFuture {
 
 
     @FXML
+    private Label Item1;
+
+    @FXML
     private Label date;
+
+    @FXML
+    private Button delete_order;
+
+    @FXML
+    private MenuItem ok1;
+
+    @FXML
+    private MenuItem ok2;
+
+    @FXML
+    private MenuItem ok3;
+
+    @FXML
+    private MenuItem ok4;
+
+    @FXML
+    private Label ordernum;
 
     @FXML
     private Label time;
 
-
     @FXML
-    private Button delete_order;
+    private Label totalprice;
 
 
 
@@ -39,6 +61,10 @@ public class HisFuture {
         //  id.settext(c.get(0))
         date.setText(c.get(0)); //only 一維List of String
         time.setText(c.get(1));
+
+        //這裡有error
+       // List<String> d=read_specificOrderItems(b);
+      //  Item1.setText(d.get(0));
 
 
 
@@ -60,6 +86,69 @@ public class HisFuture {
         //replacing the original order with deleted order
 
         // NEED another line to go back to  the previous page
+    }
+
+    @FXML
+    void Ok1(ActionEvent event) throws IOException {
+        {
+            System.out.println("HI");
+            Parent blah = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+            Scene scene = new Scene(blah);
+
+            Stage appStage = (Stage) delete_order.getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }
+
+    }
+
+    @FXML
+    void Ok2(ActionEvent event) throws IOException {
+
+        List<List<String>> a;
+
+        {
+            System.out.println("HI");
+            Parent blah = FXMLLoader.load(getClass().getResource("ReserveHis.fxml"));
+            Scene scene = new Scene(blah);
+
+            Stage appStage = (Stage) delete_order.getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+
+
+        }
+
+
+    }
+
+    @FXML
+    void Ok3(ActionEvent event) throws IOException{
+
+        {
+            System.out.println("HI");
+            Parent blah = FXMLLoader.load(getClass().getResource("PersonInfo.fxml"));
+            Scene scene = new Scene(blah);
+
+            Stage appStage = (Stage) delete_order.getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }
+
+    }
+
+    @FXML
+    void Ok4(ActionEvent event) throws IOException {
+        {
+            System.out.println("HI");
+            Parent blah = FXMLLoader.load(getClass().getResource("LobbyPage.fxml"));
+            Scene scene = new Scene(blah);
+
+            Stage appStage = (Stage) delete_order.getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }
+
     }
 
     private static List<List<String>> read() {
@@ -128,6 +217,33 @@ public class HisFuture {
         List<String> specificorder= records.get(b);
         return specificorder;
     }
+
+
+    private List<String> read_specificOrderItems(int b) {
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrderItems.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(records.toString());
+
+
+        List<String> specificorder= records.get(b);
+        return specificorder;
+    }
+
+
+
+
+
 
     protected List<List<String>> Deleting(List<List<String>> a) {
         int c = readcommu_i();

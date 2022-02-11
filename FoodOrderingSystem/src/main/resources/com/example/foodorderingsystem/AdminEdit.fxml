@@ -60,7 +60,7 @@
                             <font>
                                 <Font size="20.0" />
                             </font></Label>
-                        <TextArea layoutX="14.0" layoutY="74.0" prefHeight="67.0" prefWidth="105.0" promptText="Food Description" />
+                        <TextArea fx:id="food_des1" layoutX="14.0" layoutY="74.0" prefHeight="67.0" prefWidth="105.0" promptText="Food Description" />
                         <MenuButton fx:id="foodtyp" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#FoodTyp" prefHeight="26.0" prefWidth="162.0" text="Food Type">
                             <items>
                                 <MenuItem fx:id="food2" mnemonicParsing="false" onAction="#Food2" text="7-11" />
@@ -69,28 +69,28 @@
                             </items>
                         </MenuButton>
                         <Button fx:id="save" layoutX="301.0" layoutY="327.0" mnemonicParsing="false" onAction="#Save" prefHeight="26.0" prefWidth="96.0" text="save" />
-                        <TextField layoutX="14.0" layoutY="141.0" prefHeight="26.0" prefWidth="105.0" promptText="Set Price" />
-                        <TextField layoutX="14.0" layoutY="48.0" prefHeight="26.0" prefWidth="105.0" promptText="Food Item " />
-                        <TextField layoutX="14.0" layoutY="169.0" prefHeight="26.0" prefWidth="105.0" promptText="Picture URL" />
-                        <TextArea layoutX="14.0" layoutY="232.0" prefHeight="67.0" prefWidth="105.0" promptText="Food Description" />
-                        <TextField layoutX="14.0" layoutY="299.0" prefHeight="26.0" prefWidth="105.0" promptText="Set Price" />
-                        <TextField layoutX="14.0" layoutY="206.0" prefHeight="26.0" prefWidth="105.0" promptText="Food Item " />
-                        <TextField layoutX="14.0" layoutY="327.0" prefHeight="26.0" prefWidth="105.0" promptText="Picture URL" />
-                        <TextArea layoutX="162.0" layoutY="74.0" prefHeight="67.0" prefWidth="105.0" promptText="Food Description" />
-                        <TextField layoutX="162.0" layoutY="141.0" prefHeight="26.0" prefWidth="105.0" promptText="Set Price" />
-                        <TextField layoutX="162.0" layoutY="48.0" prefHeight="26.0" prefWidth="105.0" promptText="Food Item " />
-                        <TextField layoutX="162.0" layoutY="169.0" prefHeight="26.0" prefWidth="105.0" promptText="Picture URL" />
-                        <TextArea layoutX="162.0" layoutY="232.0" prefHeight="67.0" prefWidth="105.0" promptText="Food Description" />
-                        <TextField layoutX="162.0" layoutY="299.0" prefHeight="26.0" prefWidth="105.0" promptText="Set Price" />
-                        <TextField layoutX="162.0" layoutY="206.0" prefHeight="26.0" prefWidth="105.0" promptText="Food Item " />
-                        <TextField layoutX="162.0" layoutY="327.0" prefHeight="26.0" prefWidth="105.0" promptText="Picture URL" />
+                        <TextField fx:id="price1" layoutX="14.0" layoutY="141.0" prefHeight="26.0" prefWidth="105.0" promptText="Set Price" />
+                        <TextField fx:id="item1" layoutX="14.0" layoutY="48.0" prefHeight="26.0" prefWidth="105.0" promptText="Food Item " />
+                        <TextField fx:id="url1" layoutX="14.0" layoutY="169.0" prefHeight="26.0" prefWidth="105.0" promptText="Picture URL" />
+                        <TextArea fx:id="food_des3" layoutX="14.0" layoutY="232.0" prefHeight="67.0" prefWidth="105.0" promptText="Food Description" />
+                        <TextField fx:id="price3" layoutX="14.0" layoutY="299.0" prefHeight="26.0" prefWidth="105.0" promptText="Set Price" />
+                        <TextField fx:id="item3" layoutX="14.0" layoutY="206.0" prefHeight="26.0" prefWidth="105.0" promptText="Food Item " />
+                        <TextField fx:id="url3" layoutX="14.0" layoutY="327.0" prefHeight="26.0" prefWidth="105.0" promptText="Picture URL" />
+                        <TextArea fx:id="food_des2" layoutX="162.0" layoutY="74.0" prefHeight="67.0" prefWidth="105.0" promptText="Food Description" />
+                        <TextField fx:id="price2" layoutX="162.0" layoutY="141.0" prefHeight="26.0" prefWidth="105.0" promptText="Set Price" />
+                        <TextField fx:id="item2" layoutX="162.0" layoutY="48.0" prefHeight="26.0" prefWidth="105.0" promptText="Food Item " />
+                        <TextField fx:id="url2" layoutX="162.0" layoutY="169.0" prefHeight="26.0" prefWidth="105.0" promptText="Picture URL" />
+                        <TextArea fx:id="food_des4" layoutX="162.0" layoutY="232.0" prefHeight="67.0" prefWidth="105.0" promptText="Food Description" />
+                        <TextField fx:id="price4" layoutX="162.0" layoutY="299.0" prefHeight="26.0" prefWidth="105.0" promptText="Set Price" />
+                        <TextField fx:id="item4" layoutX="162.0" layoutY="206.0" prefHeight="26.0" prefWidth="105.0" promptText="Food Item " />
+                        <TextField fx:id="url4" layoutX="162.0" layoutY="327.0" prefHeight="26.0" prefWidth="105.0" promptText="Picture URL" />
                     </children>
                 </AnchorPane>
             </items>
         </SplitPane>
         <ImageView fitHeight="50.0" fitWidth="155.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@截圖%202021-12-03%20上午11.41.34.png" />
+                <Image url="https://images.squarespace-cdn.com/content/v1/5b63f8cf75f9eec8d6f614e7/1571361793168-6RTZY4KHL5KEORW2750E/%E4%BF%A1%E7%B4%99-%E5%AE%9A%E6%A1%88%E7%89%88_logo%E6%9B%B4%E6%AD%A3-02.png" />
             </image>
         </ImageView>
     </children>
