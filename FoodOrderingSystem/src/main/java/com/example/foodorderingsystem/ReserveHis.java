@@ -6,12 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -20,6 +21,34 @@ import java.util.*;
 public class ReserveHis {
 
     private static final String COMMA_DELIMITER = ",";
+
+
+    @FXML
+    private Label RO_Date01;
+
+    @FXML
+    private Label RO_Date02;
+
+    @FXML
+    private Label RO_Date03;
+
+    @FXML
+    private ImageView RO_Image01;
+
+    @FXML
+    private ImageView RO_Image02;
+
+    @FXML
+    private ImageView RO_Image03;
+
+    @FXML
+    private Label RO_Item01;
+
+    @FXML
+    private Label RO_Item02;
+
+    @FXML
+    private Label RO_Item03;
 
     @FXML
     private Button futureok;
@@ -35,6 +64,9 @@ public class ReserveHis {
 
     @FXML
     private MenuItem ok4;
+
+    @FXML
+    private Button pastok;
 
     @FXML
     private MenuButton viewfuture;
@@ -53,8 +85,6 @@ public class ReserveHis {
 
     @FXML
     private MenuItem viewpast2;
-
-
 
     @FXML
     protected void initialize() {
@@ -120,6 +150,33 @@ public class ReserveHis {
 
 
 
+            List<List<String>> a=read_studentOrder();
+            if (a.size()==1){
+                RO_Item01.setText(String.valueOf(a.get(0).get(2)));
+                RO_Date01.setText(String.valueOf(a.get(0).get(0)));
+
+            }else if (a.size()==2){
+                RO_Item01.setText(String.valueOf(a.get(0).get(2)));
+                RO_Date01.setText(String.valueOf(a.get(0).get(0)));
+                RO_Item02.setText(String.valueOf(a.get(1).get(2)));
+                RO_Date02.setText(String.valueOf(a.get(1).get(0)));
+            }else{
+                RO_Item01.setText(String.valueOf(a.get(a.size()-1).get(2)));
+                RO_Date01.setText(String.valueOf(a.get(a.size()-1).get(0)));
+                RO_Item02.setText(String.valueOf(a.get(a.size()-2).get(2)));
+                RO_Date02.setText(String.valueOf(a.get(a.size()-2).get(0)));
+                RO_Item03.setText(String.valueOf(a.get(a.size()-3).get(2)));
+                RO_Date03.setText(String.valueOf(a.get(a.size()-3).get(0)));
+
+            }
+
+
+
+
+
+
+
+
 
     }
 
@@ -143,65 +200,68 @@ public class ReserveHis {
         appStage.show();
 
     }
+
     @FXML
     void Ok1(ActionEvent event) throws IOException
-        {
-            System.out.println("HI");
-            Parent blah = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
-            Scene scene = new Scene(blah);
+    {
+        System.out.println("HI");
+        Parent blah = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+        Scene scene = new Scene(blah);
 
-            Stage appStage = (Stage) futureok.getScene().getWindow();
-            appStage.setScene(scene);
-            appStage.show();
-        }
+        Stage appStage = (Stage) futureok.getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
+    }
 
     @FXML
     void Ok2(ActionEvent event) throws IOException
-        {
-            System.out.println("HI");
-            Parent blah = FXMLLoader.load(getClass().getResource("ReserveHis.fxml"));
-            Scene scene = new Scene(blah);
+    {
+        System.out.println("HI");
+        Parent blah = FXMLLoader.load(getClass().getResource("ReserveHis.fxml"));
+        Scene scene = new Scene(blah);
 
-            Stage appStage = (Stage) futureok.getScene().getWindow();
-            appStage.setScene(scene);
-            appStage.show();
-        }
+        Stage appStage = (Stage) futureok.getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
+    }
 
     @FXML
     void Ok3(ActionEvent event) throws IOException
-        {
-            System.out.println("HI");
-            Parent blah = FXMLLoader.load(getClass().getResource("PersonInfo.fxml"));
-            Scene scene = new Scene(blah);
+    {
+        System.out.println("HI");
+        Parent blah = FXMLLoader.load(getClass().getResource("PersonInfo.fxml"));
+        Scene scene = new Scene(blah);
 
-            Stage appStage = (Stage) futureok.getScene().getWindow();
-            appStage.setScene(scene);
-            appStage.show();
-        }
+        Stage appStage = (Stage) futureok.getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
+    }
 
     @FXML
     void Ok4(ActionEvent event) throws IOException
-        {
-            System.out.println("HI");
-            Parent blah = FXMLLoader.load(getClass().getResource("LobbyPage.fxml"));
-            Scene scene = new Scene(blah);
+    {
+        System.out.println("HI");
+        Parent blah = FXMLLoader.load(getClass().getResource("LobbyPage.fxml"));
+        Scene scene = new Scene(blah);
 
-            Stage appStage = (Stage) futureok.getScene().getWindow();
-            appStage.setScene(scene);
-            appStage.show();
-        }
+        Stage appStage = (Stage) futureok.getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
+    }
+
+
+    @FXML
+    void PastOk(ActionEvent event) {
+
+    }
 
     @FXML
     void ViewFuture(ActionEvent event) {
-
-
-
 
     }
 
     @FXML
     void ViewFuture1(ActionEvent event) {
-
 
     }
 
@@ -300,6 +360,24 @@ public class ReserveHis {
 
 
     }
+
+    private static List<List<String>> read_studentOrder() {
+
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrder.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(records.toString());
+        return records;
+    }
 }
 
 
@@ -319,5 +397,8 @@ class CustomComparator implements Comparator<List<String>> //判斷日期順序 
         else return 1;
 
     }
+
+
+
 
 }
