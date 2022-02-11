@@ -94,6 +94,12 @@ public class LobbyPage {
     private ImageView RO_Image03;
 
     @FXML
+    private TextField orderstuclass;
+
+    @FXML
+    private TextField orderstuname;
+
+    @FXML
     private Label RO_Item01;
 
     @FXML
@@ -404,13 +410,16 @@ public class LobbyPage {
 
         // 到時候整個寫到 if else的 if 裏面
         LocalDate date = dpicker.getValue();
-        System.out.println(date);
+        //System.out.println(date);
         String fti=seltime.getText();
-        System.out.println(fti);
+        //System.out.println(fti);
         String fty=foodtyp.getText();
-        System.out.println(fty);
+        //System.out.println(fty);
         String Local_T=LocalTime.now().toString();
-        System.out.println(Local_T);
+        //System.out.println(Local_T);
+
+        String stuname=orderstuname.getText();
+        String stuclass=orderstuclass.getText();
 
         List<List<String>> b=read_studentOrder();
         List<String> c=new ArrayList<>();
@@ -421,6 +430,8 @@ public class LobbyPage {
             c.add(date.toString());
             c.add(fti);
             c.add(fty);
+            c.add(stuname);
+            c.add(stuclass);
             b.add(c);
             write_SO(b);
             suborder.setText("Submitted!!");

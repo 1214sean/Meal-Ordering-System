@@ -12,6 +12,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -124,6 +125,8 @@
                         <Label fx:id="Price_03" layoutX="14.0" layoutY="303.0" prefHeight="18.0" prefWidth="49.0" text="Price" />
                         <Label fx:id="Price_02" layoutX="224.0" layoutY="190.0" prefHeight="18.0" prefWidth="49.0" text="Price" />
                         <Label fx:id="Price_04" layoutX="224.0" layoutY="303.0" prefHeight="18.0" prefWidth="49.0" text="Price" />
+                        <TextField fx:id="orderstuname" layoutX="291.0" layoutY="29.0" prefHeight="26.0" prefWidth="105.0" promptText="Student Name" />
+                        <TextField fx:id="orderstuclass" layoutX="291.0" layoutY="55.0" prefHeight="26.0" prefWidth="105.0" promptText="Student Class" />
                     </children>
                 </AnchorPane>
             </items>

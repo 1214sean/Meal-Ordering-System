@@ -2,11 +2,15 @@ package com.example.foodorderingsystem;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -116,7 +120,16 @@ public class AdminEdit {
     }
 
     @FXML
-    void Ok1(ActionEvent event) {
+    void Ok1(ActionEvent event) throws IOException {
+        {
+            System.out.println("HI");
+            Parent blah = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+            Scene scene = new Scene(blah);
+
+            Stage appStage = (Stage) save.getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }
 
     }
 
