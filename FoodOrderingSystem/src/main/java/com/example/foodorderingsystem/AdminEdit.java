@@ -8,7 +8,14 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class AdminEdit {
+
+    private static final String COMMA_DELIMITER = ",";
 
     @FXML
     private MenuItem food2;
@@ -130,7 +137,67 @@ public class AdminEdit {
 
     @FXML
     void Save(ActionEvent event) {
-        String a= item1.getText();
+        if(foodtyp.getText()=="7-11") {
+            List<List<String>> a = read_711();
+            a.get(0).set(0, item1.getText());
+            a.get(0).set(1, food_des1.getText());
+            a.get(0).set(2, price1.getText());
+            a.get(0).set(3, url1.getText());
+            a.get(1).set(0, item2.getText());
+            a.get(1).set(1, food_des2.getText());
+            a.get(1).set(2, price2.getText());
+            a.get(1).set(3, url2.getText());
+            a.get(2).set(0, item3.getText());
+            a.get(2).set(1, food_des3.getText());
+            a.get(2).set(2, price3.getText());
+            a.get(2).set(3, url3.getText());
+            a.get(3).set(0, item4.getText());
+            a.get(3).set(1, food_des4.getText());
+            a.get(3).set(2, price4.getText());
+            a.get(3).set(3, url4.getText());
+            write_711(a);
+        }
+    }
+
+
+    private static List<List<String>> read_711() {
+
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "7-11.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(records.toString());
+        return records;
+    }
+
+    private static void write_711(List<List<String>> data) {
+        String ans = "";
+        for(int i = 0; i < data.size(); i++) {
+            for(int j = 0; j < data.get(i).size(); j++) {
+                ans += String.valueOf(data.get(i).get(j));
+                if(j != data.get(i).size() - 1) ans += ",";
+            }
+            if(i != data.size() - 1) ans += "\n";
+        }
+        System.out.print(ans);
+
+        try {
+            FileWriter myWriter = new FileWriter(Configs.base + "7-11.csv");
+            myWriter.write(ans);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
 
 
     }

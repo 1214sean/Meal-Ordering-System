@@ -70,6 +70,12 @@ public class HisFuture {
             buyitems=buyitems+" "+d.get(i);
         Item1.setText(buyitems);
 
+        List<String> e=read_specificOrderPrice(b);
+        totalprice.setText(e.get(0)+" NTD");
+
+
+
+
 
 
 
@@ -277,6 +283,28 @@ public class HisFuture {
     private List<String> read_specificOrderItems(int b) {
         List<List<String>> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrderItems.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(records.toString());
+
+
+        List<String> specificorder= records.get(b);
+        return specificorder;
+    }
+
+
+    private List<String> read_specificOrderPrice(int b) {
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrderPrice.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
