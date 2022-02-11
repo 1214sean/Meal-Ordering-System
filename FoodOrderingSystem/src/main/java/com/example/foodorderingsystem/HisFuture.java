@@ -73,9 +73,23 @@ public class HisFuture {
     @FXML
     protected void Delete_Order() throws IOException {
 
-        List<List<String>> b = read(); //讀取原本資料
-        List<List<String>> c = Deleting(b);
-        write(c);
+        List<List<String>> b = read_StudentOrder(); //讀取原本資料
+        List<List<String>> c = Deleting(b);//刪資料
+        write_StudentOrder(c);
+
+
+
+        List<List<String>> x = read_SOI(); //讀取原本資料
+        List<List<String>> y = Deleting(x);
+        write_SOI(y);
+
+
+        List<List<String>> e = read_SOP(); //讀取原本資料
+        List<List<String>> f = Deleting(e);
+        write_SOP(f);
+
+
+
         System.out.println("HI");
         Parent blah = FXMLLoader.load(getClass().getResource("ReserveHis.fxml"));
         Scene scene = new Scene(blah);
@@ -151,10 +165,46 @@ public class HisFuture {
 
     }
 
-    private static List<List<String>> read() {
+    private static List<List<String>> read_StudentOrder() {
 
         List<List<String>> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrder.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(records.toString());
+        return records;
+    }
+
+    private static List<List<String>> read_SOI() {
+
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrderItems.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(records.toString());
+        return records;
+    }
+
+    private static List<List<String>> read_SOP() {
+
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(Configs.base + "StudentOrderPrice.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
@@ -258,7 +308,7 @@ public class HisFuture {
         return records2;
     }
 
-    private static void write(List<List<String>> data) {
+    private static void write_StudentOrder(List<List<String>> data) {
         String ans = "";
         for(int i = 0; i < data.size(); i++) {
             for(int j = 0; j < data.get(i).size(); j++) {
@@ -271,6 +321,54 @@ public class HisFuture {
 
         try {
             FileWriter myWriter = new FileWriter(Configs.base + "StudentOrder.csv");
+            myWriter.write(ans);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private static void write_SOI(List<List<String>> data) {
+        String ans = "";
+        for(int i = 0; i < data.size(); i++) {
+            for(int j = 0; j < data.get(i).size(); j++) {
+                ans += String.valueOf(data.get(i).get(j));
+                if(j != data.get(i).size() - 1) ans += ",";
+            }
+            if(i != data.size() - 1) ans += "\n";
+        }
+        System.out.print(ans);
+
+        try {
+            FileWriter myWriter = new FileWriter(Configs.base + "StudentOrderItems.csv");
+            myWriter.write(ans);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private static void write_SOP(List<List<String>> data) {
+        String ans = "";
+        for(int i = 0; i < data.size(); i++) {
+            for(int j = 0; j < data.get(i).size(); j++) {
+                ans += String.valueOf(data.get(i).get(j));
+                if(j != data.get(i).size() - 1) ans += ",";
+            }
+            if(i != data.size() - 1) ans += "\n";
+        }
+        System.out.print(ans);
+
+        try {
+            FileWriter myWriter = new FileWriter(Configs.base + "StudentOrderPrice.csv");
             myWriter.write(ans);
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
