@@ -20,7 +20,6 @@ public class HisFuture {
 
     private static final String COMMA_DELIMITER = ",";
 
-
     @FXML
     private Label Item1;
 
@@ -43,7 +42,10 @@ public class HisFuture {
     private MenuItem ok4;
 
     @FXML
-    private Label ordernum;
+    private Label orderstuclass;
+
+    @FXML
+    private Label orderstuname;
 
     @FXML
     private Label time;
@@ -61,6 +63,8 @@ public class HisFuture {
         //  id.settext(c.get(0))
         date.setText(c.get(0)); //only 一維List of String
         time.setText(c.get(1));
+        orderstuname.setText(c.get(3));
+        orderstuclass.setText(c.get(4));
 
 
         List<String> d=read_specificOrderItems(b);

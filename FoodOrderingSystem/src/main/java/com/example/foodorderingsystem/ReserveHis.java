@@ -129,7 +129,7 @@ public class ReserveHis {
             MenuItem item=new MenuItem(c);
             viewpast.getItems().add(item);
             final int j_final_past =j;
-            item.setOnAction(event -> orderClicked(event, j_final_past));
+            item.setOnAction(event -> orderClicked(event, j_final_past)); //onAction pragmtically by using anomynomus  fuciton when click the certain vie future order, it atomaticlly writes into the gile of which intend to open
 
 
         }

@@ -80,11 +80,12 @@
                             </font></Label>
                         <Accordion layoutX="16.0" layoutY="23.0" prefHeight="105.0" prefWidth="201.0">
                             <panes>
-                                <TitledPane animated="false" text="Order Number">
+                                <TitledPane animated="false" text="Order Student Information ">
                                     <content>
                                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                             <children>
-                                                <Label fx:id="ordernum" prefHeight="17.0" prefWidth="170.0" text="#000001" />
+                                                <Label fx:id="orderstuclass" prefHeight="17.0" prefWidth="170.0" text="Class" />
+                                                <Label fx:id="orderstuname" layoutY="16.0" prefHeight="17.0" prefWidth="170.0" text="Name" />
                                             </children>
                                         </AnchorPane>
                                     </content>
