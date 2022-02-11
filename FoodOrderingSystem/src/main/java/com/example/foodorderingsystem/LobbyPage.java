@@ -432,7 +432,7 @@ public class LobbyPage {
 
 
         //寫進物品
-        List<List<String>> d=read_studentOrderPrice();
+        List<List<String>> d=read_studentOrderItems();
         List<String> e=new ArrayList<>();
 
         if(sel1.isSelected()==true)
@@ -459,7 +459,7 @@ public class LobbyPage {
 
         //寫進總價
 
-        List<List<String>> a=read_studentOrderItems();
+        List<List<String>> a=read_studentOrderPrice();
         List<String> x=new ArrayList<>();
         int total_price=0;
 
