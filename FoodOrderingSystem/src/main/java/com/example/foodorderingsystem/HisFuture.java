@@ -62,9 +62,14 @@ public class HisFuture {
         date.setText(c.get(0)); //only 一維List of String
         time.setText(c.get(1));
 
-        //這裡有error
-       // List<String> d=read_specificOrderItems(b);
-      //  Item1.setText(d.get(0));
+
+        List<String> d=read_specificOrderItems(b);
+        int dsize=d.size();
+        String buyitems="";
+        for(int i =0;i<dsize;i++)
+            buyitems=buyitems+" "+d.get(i);
+        Item1.setText(buyitems);
+
 
 
 
