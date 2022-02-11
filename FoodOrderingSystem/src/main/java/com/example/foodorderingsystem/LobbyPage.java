@@ -427,6 +427,34 @@ public class LobbyPage {
             suborder.setText("Select Again");
         }
 
+
+
+        //寫進物品
+        List<List<String>> d=read_studentOrderPrice();
+        List<String> e=new ArrayList<>();
+
+        if(sel1.isSelected()==true)
+            e.add(Food_Item_01.getText());
+        else {}
+
+
+        if(sel2.isSelected()==true)
+            e.add(Food_Item_02.getText());
+        else {}
+
+
+        if(sel3.isSelected()==true)
+            e.add(Food_Item_03.getText());
+        else {}
+
+        if(sel4.isSelected()==true)
+            e.add(Food_Item_04.getText());
+        else {}
+
+        d.add(e);
+        write_SOI(d);
+        
+
         //寫進總價
 
         List<List<String>> a=read_studentOrderItems();
@@ -457,30 +485,7 @@ public class LobbyPage {
         write_SOP(a);
 
 
-        //寫進物品
-        List<List<String>> d=read_studentOrderPrice();
-        List<String> e=new ArrayList<>();
 
-        if(sel1.isSelected()==true)
-            e.add(Food_Item_01.getText());
-        else {}
-
-        
-        if(sel2.isSelected()==true)
-            e.add(Food_Item_02.getText());
-        else {}
-
-
-        if(sel3.isSelected()==true)
-            e.add(Food_Item_03.getText());
-        else {}
-
-        if(sel4.isSelected()==true)
-            e.add(Food_Item_04.getText());
-        else {}
-
-        d.add(e);
-        write_SOI(d);
 
 
     }
