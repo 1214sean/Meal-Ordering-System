@@ -71,8 +71,6 @@ public class Adminfutureo {
         totalprice.setText(e.get(0)+" NTD");
 
 
-
-
     }
 
     @FXML
