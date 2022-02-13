@@ -23,17 +23,13 @@
                     <items>
                         <MenuItem fx:id="ok1" mnemonicParsing="false" onAction="#Ok1" text="ok" />
                     </items></Menu>
-                <Menu mnemonicParsing="false" text="Future Reservation">
+                <Menu mnemonicParsing="false" text="Reservation History">
                     <items>
                         <MenuItem fx:id="ok2" mnemonicParsing="false" onAction="#Ok2" text="ok" />
                     </items></Menu>
                 <Menu mnemonicParsing="false" text="Edit Meal">
                     <items>
                         <MenuItem fx:id="ok3" mnemonicParsing="false" onAction="#Ok3" text="ok" />
-                    </items></Menu>
-                <Menu mnemonicParsing="false" text="Past Order">
-                    <items>
-                        <MenuItem fx:id="ok4" mnemonicParsing="false" onAction="#Ok4" text="ok" />
                     </items></Menu>
             </menus>
         </MenuBar>
@@ -43,7 +39,7 @@
                     <children>
                         <ImageView fitHeight="60.0" fitWidth="80.0" layoutX="10.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="39.0">
                             <image>
-                                <Image url="@istockphoto-1191487541-170667a.jpg" />
+                                <Image url="https://dvblobcdnjp.azureedge.net//Content/Upload/Popular/Images/2020-10/2c85810b-0dc4-44bb-a4bb-4c15e7cd7a5e_m.jpghttps://dvblobcdnjp.azureedge.net//Content/Upload/Popular/Images/2020-10/2c85810b-0dc4-44bb-a4bb-4c15e7cd7a5e_m.jpg" />
                             </image>
                         </ImageView>
                         <Label layoutX="11.0" layoutY="14.0" prefHeight="17.0" prefWidth="78.0" text="Personl Info" />
@@ -56,7 +52,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="502.0">
                     <children>
                         <ScrollBar layoutX="415.0" orientation="VERTICAL" prefHeight="353.0" prefWidth="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="415.0" AnchorPane.topAnchor="0.0" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="319.0" prefHeight="30.0" prefWidth="96.0" text="Edit Meal  ">
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="301.0" layoutY="12.0" prefHeight="30.0" prefWidth="96.0" text="Edit Meal  ">
                             <font>
                                 <Font size="20.0" />
                             </font></Label>

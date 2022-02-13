@@ -66,8 +66,6 @@ public class AdminEdit {
     @FXML
     private MenuItem ok3;
 
-    @FXML
-    private MenuItem ok4;
 
     @FXML
     private TextField price1;
@@ -134,19 +132,34 @@ public class AdminEdit {
     }
 
     @FXML
-    void Ok2(ActionEvent event) {
+    void Ok2(ActionEvent event) throws IOException {
+        {
+            System.out.println("HI");
+            Parent blah = FXMLLoader.load(getClass().getResource("AdminHisOrder.fxml"));
+            Scene scene = new Scene(blah);
+
+            Stage appStage = (Stage) save.getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }
 
     }
 
     @FXML
-    void Ok3(ActionEvent event) {
+    void Ok3(ActionEvent event) throws IOException {
+        {
+            System.out.println("HI");
+            Parent blah = FXMLLoader.load(getClass().getResource("AdminEdit.fxml"));
+            Scene scene = new Scene(blah);
+
+            Stage appStage = (Stage) save.getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }
 
     }
 
-    @FXML
-    void Ok4(ActionEvent event) {
 
-    }
 
     @FXML
     void Save(ActionEvent event) {
