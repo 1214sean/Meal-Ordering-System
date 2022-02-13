@@ -44,7 +44,7 @@ public class AdminHisOrder {
     @FXML
     void FutureOk(ActionEvent event) throws IOException {
         System.out.println("HI");
-        Parent blah = FXMLLoader.load(getClass().getResource("HisFuture.fxml"));
+        Parent blah = FXMLLoader.load(getClass().getResource("Adminfutureo.fxml"));
         Scene scene = new Scene(blah);
 
         Stage appStage = (Stage) futureok.getScene().getWindow();
